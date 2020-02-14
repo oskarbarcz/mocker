@@ -2,33 +2,27 @@
 
 namespace App\Controller;
 
-use App\Exception\FileNotFoundException;
-use App\Service\JsonFileLoader;
+use App\Entity\Resource;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController
 {
-    private JsonFileLoader $fileLoader;
-
-    public function __construct(JsonFileLoader $fileLoader)
-    {
-        $this->fileLoader = $fileLoader;
-    }
-
     /**
-     * @Route("/api/{filename}")
-     * @param string $filename
+     * @Route("/api/{slug}")
+     * @param Resource|null $resource
      * @return Response
      */
-    public function readFromFile(string $filename): Response
+    public function readResource(Resource $resource = null): Response
     {
-        try {
-            $json = $this->fileLoader->load($filename);
-            return JsonResponse::fromJsonString($json);
-        } catch (FileNotFoundException $e) {
-            return new JsonResponse(['code' => 404, 'message' => $e->getMessage()], Response::HTTP_NOT_FOUND);
+        if (!$resource instanceof Resource) {
+            $message = ['code' => 404, 'message' => 'Not Found'];
+            return new JsonResponse($message, Response::HTTP_NOT_FOUND);
         }
+
+        $statusCode = $resource->getContent() === null ? Response::HTTP_NO_CONTENT : Response::HTTP_OK;
+
+        return new JsonResponse($resource->getContent(), $statusCode);
     }
 }
