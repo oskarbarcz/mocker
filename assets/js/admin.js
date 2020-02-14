@@ -1,0 +1,1 @@
+import '../sass/domain/admin/index.sass';
