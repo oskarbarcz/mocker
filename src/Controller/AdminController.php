@@ -20,10 +20,15 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/")
+     * @Route("/{slug}", name="app_index")
+     * @param string|null $slug
+     * @return Response
      */
-    public function index(): Response
+    public function index(string $slug = null): Response
     {
-        return $this->render('admin/admin.html.twig', ['resources' => $this->resourceRepository->findAll()]);
+        return $this->render(
+            'admin/admin.html.twig',
+            ['resources' => $this->resourceRepository->findAll(), 'slug' => $slug]
+        );
     }
 }
