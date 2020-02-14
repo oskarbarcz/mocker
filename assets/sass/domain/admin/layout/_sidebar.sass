@@ -1,0 +1,23 @@
+.sidebar
+  position: relative
+  min-width: 250px
+  @include shadow(1)
+  min-height: 100%
+  &__title
+    margin: 10px
+    font-weight: bold
+    font-size: 1.2em
+  &__list
+    display: flex
+    flex-direction: column
+  &__new-resource
+    width: 100%
+    position: absolute
+    bottom: 0
+    background: #075fba
+    padding: 10px
+    display: block
+    color: white
+    text-decoration: none
+    &:hover, &:focus
+      background: darken(#075fba, 10)

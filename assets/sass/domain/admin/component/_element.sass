@@ -1,0 +1,22 @@
+.element
+  width: 100%
+  padding: 7px 10px
+  transition: 0.1s ease-in-out
+  &:hover, &:focus
+    background: darken(white, 10)
+  &--selected
+    background: darken(white, 5)
+    .element__link
+      cursor: not-allowed
+    &:hover, &:focus
+      background: darken(white, 5)
+  &__link
+    color: #292929
+    text-decoration: none
+  &__title
+    font-weight: bold
+    display: block
+  &__slug
+    font-size: 0.8em
+    display: block
+    color: #666666
