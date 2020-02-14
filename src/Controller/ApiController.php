@@ -27,8 +27,8 @@ class ApiController
         try {
             $json = $this->fileLoader->load($filename);
             return JsonResponse::fromJsonString($json);
-        } catch (FileNotFoundException $exception) {
-            return new JsonResponse(['code' => 404, 'message' => 'Not Found.'], Response::HTTP_NOT_FOUND);
+        } catch (FileNotFoundException $e) {
+            return new JsonResponse(['code' => 404, 'message' => $e->getMessage()], Response::HTTP_NOT_FOUND);
         }
     }
 }

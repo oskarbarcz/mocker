@@ -26,7 +26,7 @@ class JsonFileLoader
         $path = $this->makeFilePath($filename);
 
         if (!file_exists($path)) {
-            throw new FileNotFoundException('File not found.');
+            throw new FileNotFoundException($filename . self::FILE_EXT);
         }
 
         return file_get_contents($path);
