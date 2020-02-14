@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use RuntimeException;
+use App\Exception\FileNotFoundException;
 
 class JsonFileLoader
 {
@@ -19,14 +19,14 @@ class JsonFileLoader
      *
      * @param string $filename
      * @return string
+     * @throws FileNotFoundException
      */
     public function load(string $filename): string
     {
         $path = $this->makeFilePath($filename);
 
         if (!file_exists($path)) {
-            dd($path);
-            throw new RuntimeException('File not found.');
+            throw new FileNotFoundException('File not found.');
         }
 
         return file_get_contents($path);

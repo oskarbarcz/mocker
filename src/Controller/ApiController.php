@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Exception\FileNotFoundException;
 use App\Service\JsonFileLoader;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,9 +22,13 @@ class ApiController
      * @param string $filename
      * @return Response
      */
-    public function index(string $filename): Response
+    public function readFromFile(string $filename): Response
     {
-        $json = $this->fileLoader->load($filename);
-        return JsonResponse::fromJsonString($json);
+        try {
+            $json = $this->fileLoader->load($filename);
+            return JsonResponse::fromJsonString($json);
+        } catch (FileNotFoundException $exception) {
+            return new JsonResponse(['code' => 404, 'message' => 'Not Found.'], Response::HTTP_NOT_FOUND);
+        }
     }
 }
