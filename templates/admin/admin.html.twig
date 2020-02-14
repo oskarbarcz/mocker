@@ -5,7 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    Hello, world!
+    <div class="container">
+        <main class="window">
+            {% include 'component/_list.html.twig' %}
+            {% include 'component/_details.html.twig' %}
+        </main>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
