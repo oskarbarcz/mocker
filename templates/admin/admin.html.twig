@@ -1,16 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'window.html.twig' %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('admin') }}
 {% endblock %}
 
-{% block body %}
-    <div class="container">
-        <main class="window">
-            {% include 'admin/component/_list.html.twig' %}
-            {% include 'admin/component/_details.html.twig' %}
-        </main>
-    </div>
+{% block window %}
+    {% include 'admin/component/_list.html.twig' %}
+    {% include 'admin/component/_details.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}

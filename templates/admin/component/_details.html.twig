@@ -1,7 +1,7 @@
 <section class="details">
     {% if current is not null %}
             <h2 class="details__title">{{ current.name }}</h2>
-            <code>
+            <code lang="json">
                     {{ current.content|serialize }}
             </code>
     {% endif %}
