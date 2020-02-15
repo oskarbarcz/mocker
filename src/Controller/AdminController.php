@@ -20,6 +20,14 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/")
+     */
+    public function redirectToAdmin(): Response
+    {
+        return $this->redirectToRoute('app_index');
+    }
+
+    /**
      * @Route("/admin/r/{slug}", name="app_index")
      * @param string|null $slug
      * @return Response
