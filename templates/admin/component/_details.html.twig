@@ -1,8 +1,10 @@
 <section class="details">
-    <h2 class="details__title">Obecnie wybrany zasób</h2>
-    <p class="details__desc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti doloremque fugiat hic magni quaerat
-        voluptatibus? Aperiam autem blanditiis dolor ducimus ipsa magni nulla placeat, porro sint, sunt veniam
-        voluptate.
-    </p>
+    {% if current is not null %}
+        <h2 class="details__title">{{ current.name }}</h2>
+        <p class="details__desc">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti doloremque fugiat hic magni quaerat
+            voluptatibus? Aperiam autem blanditiis dolor ducimus ipsa magni nulla placeat, porro sint, sunt veniam
+            voluptate.
+        </p>
+    {% endif %}
 </section>

@@ -2,7 +2,7 @@
     <h1 class="sidebar__title">Zasoby</h1>
     <ul class="sidebar__list">
         {% for resource in resources %}
-            {% if resource.slug == slug %}
+            {% if current is not null and resource.slug == current.slug %}
                 <li class="sidebar__element element element--selected">
                     <a href="{{ url('app_index', {'slug': resource.slug}) }}" class="element__link">
                         <span class="element__title">{{ resource.name }}</span>
@@ -19,5 +19,5 @@
             {% endif %}
         {% endfor %}
     </ul>
-    <a class="sidebar__new-resource" href="">Dodaj zasób</a>
+    <a class="sidebar__new-resource" href="{{ url('app_add-resource') }}">Dodaj zasób</a>
 </nav>

@@ -26,9 +26,14 @@ class AdminController extends AbstractController
      */
     public function index(string $slug = null): Response
     {
+        $currentResource = ($slug !== null) ? $this->resourceRepository->findOneBy(['slug' => $slug]) : null;
+
         return $this->render(
             'admin/admin.html.twig',
-            ['resources' => $this->resourceRepository->findAll(), 'slug' => $slug]
+            [
+                'resources' => $this->resourceRepository->findAll(),
+                'current'   => $currentResource,
+            ]
         );
     }
 }
