@@ -20,7 +20,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="app_index")
+     * @Route("/admin/r/{slug}", name="app_index")
      * @param string|null $slug
      * @return Response
      */
@@ -35,5 +35,12 @@ class AdminController extends AbstractController
                 'current'   => $currentResource,
             ]
         );
+    }
+
+    /**
+     * @Route("/admin/add-resource", name="app_add-resource")
+     */
+    public function addNewResource()
+    {
     }
 }
