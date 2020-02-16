@@ -1,4 +1,5 @@
 .details
+  position: relative
   &__title
     margin: 10px
     font-weight: bold
@@ -6,3 +7,26 @@
   &__desc
     margin: 10px
     font-size: 0.8em
+  &__settings
+    margin: 0
+    display: flex
+    position: absolute
+    right: 0
+    bottom: 0
+  &__edit, &__delete
+    text-transform: uppercase
+    margin: 0
+    font-size: 0.8em
+    display: block
+    text-decoration: none
+    padding: 8px 12px
+    color: white
+    transition: 0.1s ease-in-out all
+  &__edit
+    background: #075fba
+    &:hover, &:focus
+      background: darken(#075fba, 10)
+  &__delete
+    background: #C82829
+    &:hover, &:focus
+      background: darken(#C82829, 10)

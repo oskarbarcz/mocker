@@ -1,8 +1,21 @@
-<section class="details">
+<article class="details">
     {% if current is not null %}
-            <h2 class="details__title">{{ current.name }}</h2>
-            <code lang="json">
-                    {{ current.content }}
-            </code>
+        <h2 class="details__title">{{ current.name }}</h2>
+        <p class="details__desc">
+            {{ current.description }}
+        </p>
+        <code lang="json">
+            {{ current.content }}
+        </code>
+        <div class="details__settings">
+            <a href="" class="details__edit">
+                <span class="fas fa-pen fa-fw"></span>
+                Edytuj
+            </a>
+            <a href="" class="details__delete">
+                <span class="fas fa-trash fa-fw"></span>
+                Usuń
+            </a>
+        </div>
     {% endif %}
-</section>
+</article>
