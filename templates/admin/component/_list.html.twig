@@ -1,5 +1,8 @@
 <nav class="sidebar">
-    <h1 class="sidebar__title">Zasoby</h1>
+    <h1 class="sidebar__title">
+        <span class="fas fa-code fa-fw"></span>
+        Zasoby
+    </h1>
     <ul class="sidebar__list">
         {% for resource in resources %}
             {% if current is not null and resource.slug == current.slug %}
