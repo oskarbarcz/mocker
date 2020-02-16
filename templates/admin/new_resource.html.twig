@@ -1,0 +1,14 @@
+{% extends 'window.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block window %}
+    {% include 'admin/component/_list.html.twig' %}
+    {% include 'admin/component/_form.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}

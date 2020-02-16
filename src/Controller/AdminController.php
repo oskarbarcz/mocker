@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\ResourceType;
 use App\Repository\ResourceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -48,7 +49,17 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/add-resource", name="app_add-resource")
      */
-    public function addNewResource()
+    public function addNewResource(): Response
     {
+        $form = $this->createForm(ResourceType::class);
+
+        return $this->render(
+            'admin/new_resource.html.twig',
+            [
+                'form'      => $form->createView(),
+                'resources' => $this->resourceRepository->findAll(),
+                'current'   => null,
+            ]
+        );
     }
 }
