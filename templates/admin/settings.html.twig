@@ -5,15 +5,16 @@
 {% endblock %}
 
 {% block window %}
+    {% trans_default_domain 'application' %}
     <div class="settings">
         <h2 class="settings__title">
             <span class="fas fa-cog fa-fw"></span>
-            Ustawienia
+            {% trans %}application.settings.title{% endtrans %}
         </h2>
     </div>
     <a class="window__settings" href="{{ url('app_index') }}">
         <span class="fas fa-chevron-left fa-fw"></span>
-        Powrót do aplikacji
+        {% trans %}application.window.screenSwitch.backToApp{% endtrans %}
     </a>
 {% endblock %}
 

@@ -1,0 +1,16 @@
+application:
+  window:
+    screenSwitch:
+      launchSettings: 'App settings'
+      backToApp: 'Back to app'
+  sidebar:
+    title: 'Resources'
+    addNewResource: 'Add new resource'
+  details:
+    time:
+      added: 'Added'
+    buttons:
+      edit: 'Edit'
+      remove: 'Remove'
+  settings:
+    title: 'Settings'

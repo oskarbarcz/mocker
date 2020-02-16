@@ -1,0 +1,16 @@
+application:
+  window:
+    screenSwitch:
+      launchSettings: 'Ustawienia aplikacji'
+      backToApp: 'Powrót do aplikacji'
+  sidebar:
+    title: 'Zasoby'
+    addNewResource: 'Dodaj nowy zasób'
+  details:
+    time:
+      added: 'Dodano'
+    buttons:
+      edit: 'Edytuj'
+      remove: 'Usuń'
+  settings:
+    title: 'Ustawienia'

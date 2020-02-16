@@ -1,10 +1,13 @@
+{% trans_default_domain 'application' %}
 <article class="details" data-hasCode="true">
     {% if current is not null %}
 
         <header class="details__top">
             <h2 class="details__title">{{ current.name }}</h2>
             <div class="details__times">
-                <span class="details__timeline">Dodano {{ current.createdAt|ago }}</span>
+                <span class="details__timeline">
+                  {% trans %}application.details.time.added{% endtrans %} {{ current.createdAt|ago }}
+                </span>
                 <span class="details__timeline">{{ current.createdAt.format('Y/m/d H:i' ) }}</span>
             </div>
         </header>
@@ -37,11 +40,11 @@
         <div class="details__actions">
             <a href="" class="details__edit">
                 <span class="fas fa-pen fa-fw"></span>
-                Edytuj
+                {% trans %}application.details.buttons.edit{% endtrans %}
             </a>
             <a href="{{ url('app_resource-delete', {'slug': current.slug}) }}" class="details__delete">
                 <span class="fas fa-trash fa-fw"></span>
-                Usuń
+                {% trans %}application.details.buttons.remove{% endtrans %}
             </a>
         </div>
     {% endif %}
