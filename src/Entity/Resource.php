@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Represents database Resource entity
+ *
  * @ORM\Entity(repositoryClass="App\Repository\ResourceRepository")
  */
 class Resource
@@ -19,38 +21,21 @@ class Resource
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $uuid;
+    private ?string $name = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
-    private ?string $name;
+    private ?string $slug = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private ?string $slug;
-
-    /**
-     * @ORM\Column(type="json", nullable=true)
-     */
-    private ?array $content = [];
+    private ?string $content = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUuid(): ?string
-    {
-        return $this->uuid;
-    }
-
-    public function setUuid(string $uuid): self
-    {
-        $this->uuid = $uuid;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -65,12 +50,12 @@ class Resource
         return $this;
     }
 
-    public function getContent(): ?array
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    public function setContent(?array $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 

@@ -4,20 +4,18 @@ namespace App\Controller;
 
 use App\Form\ResourceType;
 use App\Repository\ResourceRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
     private ResourceRepository $resourceRepository;
-    private EntityManagerInterface $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager, ResourceRepository $resourceRepository)
+    public function __construct(ResourceRepository $resourceRepository)
     {
         $this->resourceRepository = $resourceRepository;
-        $this->entityManager = $entityManager;
     }
 
     /**
@@ -48,18 +46,26 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/add-resource", name="app_add-resource")
+     * @param Request $request
+     * @return Response
      */
-    public function addNewResource(): Response
+    public function addNewResource(Request $request): Response
     {
         $form = $this->createForm(ResourceType::class);
+        $form->handleRequest($request);
 
-        return $this->render(
-            'admin/new_resource.html.twig',
-            [
-                'form'      => $form->createView(),
-                'resources' => $this->resourceRepository->findAll(),
-                'current'   => null,
-            ]
-        );
+        if (!$form->isSubmitted() || !$form->isValid()) {
+            return $this->render(
+                'admin/new_resource.html.twig',
+                [
+                    'form'      => $form->createView(),
+                    'resources' => $this->resourceRepository->findAll(),
+                    'current'   => null,
+                ]
+            );
+        }
+        dd($form->getData());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($form->getData());
     }
 }
