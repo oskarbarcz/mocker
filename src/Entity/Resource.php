@@ -42,7 +42,7 @@ class Resource
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private ?DateTimeInterface $createdAt;
 
     public function getId(): ?int
     {

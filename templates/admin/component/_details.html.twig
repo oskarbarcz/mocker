@@ -5,7 +5,7 @@
             <h2 class="details__title">{{ current.name }}</h2>
             <div class="details__times">
                 <span class="details__timeline">Dodano 18 minut temu</span>
-                <span class="details__timeline">2020/02/02 18:00</span>
+                <span class="details__timeline">{{ current.createdAt.format('Y/m/d H:i' ) }}</span>
             </div>
         </header>
 
