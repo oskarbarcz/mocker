@@ -23,6 +23,6 @@ class ApiController
 
         $statusCode = $resource->getContent() === null ? Response::HTTP_NO_CONTENT : Response::HTTP_OK;
 
-        return new JsonResponse($resource->getContent(), $statusCode);
+        return JsonResponse::fromJsonString($resource->getContent(), $statusCode);
     }
 }

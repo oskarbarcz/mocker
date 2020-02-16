@@ -2,7 +2,7 @@
     {% if current is not null %}
             <h2 class="details__title">{{ current.name }}</h2>
             <code lang="json">
-                    {{ current.content|serialize }}
+                    {{ current.content }}
             </code>
     {% endif %}
 </section>

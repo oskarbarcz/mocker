@@ -66,6 +66,8 @@ class AdminController extends AbstractController
         }
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($form->getData());
+        $entityManager->flush();
+        dd($form->getData());
         return $this->redirectToRoute('app_index');
     }
 }
