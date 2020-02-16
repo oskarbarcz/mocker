@@ -7,6 +7,10 @@
 {% block window %}
     {% include 'admin/component/_list.html.twig' %}
     {% include 'admin/component/_details.html.twig' %}
+    <a class="window__settings" href="{{ url('app_settings') }}">
+        <span class="fas fa-cog"></span>
+        Ustawienia aplikacji
+    </a>
 {% endblock %}
 
 {% block javascripts %}

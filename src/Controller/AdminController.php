@@ -56,7 +56,7 @@ class AdminController extends AbstractController
 
         if (!$form->isSubmitted() || !$form->isValid()) {
             return $this->render(
-                'admin/new_resource.html.twig',
+                'admin/form.html.twig',
                 [
                     'form'      => $form->createView(),
                     'resources' => $this->resourceRepository->findAll(),
@@ -67,7 +67,14 @@ class AdminController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($form->getData());
         $entityManager->flush();
-        dd($form->getData());
         return $this->redirectToRoute('app_index');
+    }
+
+    /**
+     * @Route("admin/settings", name="app_settings")
+     */
+    public function settings(): Response
+    {
+        return $this->render('admin/settings.html.twig');
     }
 }

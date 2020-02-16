@@ -1,0 +1,22 @@
+{% extends 'window.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block window %}
+    <div class="settings">
+        <h2 class="settings__title">
+            <span class="fas fa-cog fa-fw"></span>
+            Ustawienia
+        </h2>
+    </div>
+    <a class="window__settings" href="{{ url('app_index') }}">
+        <span class="fas fa-chevron-left fa-fw"></span>
+        Powrót do aplikacji
+    </a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
