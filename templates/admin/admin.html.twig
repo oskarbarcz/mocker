@@ -6,8 +6,6 @@
 {% endif %}
     {% block title %}{{ pageTitle }}{% endblock %}
 
-
-
 {% if app.request.port == 80 %}
     {% set host = 'http://' ~ app.request.host %}
 {% elseif app.request.port == 443 %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Resource;
 use App\Form\ResourceType;
 use App\Repository\ResourceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -66,6 +67,23 @@ class AdminController extends AbstractController
         }
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($form->getData());
+        $entityManager->flush();
+        return $this->redirectToRoute('app_index');
+    }
+
+    /**
+     * @Route("/admin/remove-resource/{slug}", name="app_resource-delete")
+     * @param Resource|null $resource
+     * @return Response
+     */
+    public function removeResource(Resource $resource = null): Response
+    {
+        if (!$resource instanceof Resource) {
+            return $this->redirectToRoute('app_index');
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($resource);
         $entityManager->flush();
         return $this->redirectToRoute('app_index');
     }
