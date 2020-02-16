@@ -1,0 +1,27 @@
+.window
+  position: relative
+  width: 850px
+  height: 600px
+  background: white
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+  display: flex
+  flex-shrink: 1
+  &__settings
+    background: #F8F9FA
+    position: absolute
+    right: 0
+    top: -35px
+    display: flex
+    align-items: center
+    font-size: 0.8em
+    font-weight: 300
+    text-decoration: none
+    padding: 5px 10px
+    color: #292929
+    transition: 0.1s ease-in-out
+    &:hover, &:focus
+      background: white
+      @include shadow(1)
+    .fas
+      padding-right: 5px
+      font-size: 0.9em

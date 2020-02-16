@@ -1,11 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'window.html.twig' %}
+{% if current %}
+    {% set pageTitle = current.name ~ ' | Mocker' %}
+{% else %}
+    {% set pageTitle = 'Mocker' %}
+{% endif %}
+    {% block title %}{{ pageTitle }}{% endblock %}
+
+{% if app.request.port == 80 %}
+    {% set host = 'http://' ~ app.request.host %}
+{% elseif app.request.port == 443 %}
+    {% set host = 'https://' ~ app.request.host %}
+{% else %}
+    {% set host = 'http://' ~ app.request.host ~ ':' ~ app.request.port %}
+{% endif %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('admin') }}
 {% endblock %}
 
-{% block body %}
-    Hello, world!
+{% block window %}
+    {% include 'admin/component/_list.html.twig' %}
+    {% include 'admin/component/_details.html.twig' %}
+    <a class="window__settings" href="{{ url('app_settings') }}">
+        <span class="fas fa-cog"></span>
+        Ustawienia aplikacji
+    </a>
 {% endblock %}
 
 {% block javascripts %}

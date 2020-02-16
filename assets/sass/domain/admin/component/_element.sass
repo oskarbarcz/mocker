@@ -1,0 +1,28 @@
+.element
+  width: 100%
+  padding: 7px 10px
+  transition: 0.1s ease-in-out
+  &:hover, &:focus
+    background: darken(white, 15)
+  &--selected
+    background: darken(white, 10)
+    &:hover, &:focus
+      background: darken(white, 10)
+    .element__link
+      cursor: not-allowed
+  &__link
+    color: #292929
+    text-decoration: none
+  &__title
+    font-weight: 500
+    font-size: 0.9em
+    display: block
+  &__slug
+    display: flex
+    align-items: center
+    font-size: 0.7em
+    font-weight: 300
+    color: #444444
+  &__url-icon
+    font-size: 0.8em
+    margin-right: 2px
