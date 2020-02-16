@@ -1,10 +1,39 @@
 <article class="details" data-hasCode="true">
     {% if current is not null %}
-        <h2 class="details__title">{{ current.name }}</h2>
+
+        <header class="details__top">
+            <h2 class="details__title">{{ current.name }}</h2>
+            <div class="details__times">
+                <span class="details__timeline">Dodano 18 minut temu</span>
+                <span class="details__timeline">2020/02/02 18:00</span>
+            </div>
+        </header>
+
         <p class="details__desc">
             {{ current.description }}
         </p>
         <pre class="details__code"><code class="json details__exact-code">{{ current.content }}</code></pre>
+
+        <div class="details__access">
+            <div class="details__link">
+                <button data-link="{{ host }}/{{ current.slug }}"
+                        class="fas fa-copy fa-fw details__copy-icon"></button>
+                <a target="_blank"
+                   class="details__link-content"
+                   href="{{ url('api_general', {'slug': current.slug}) }}">
+                    {{ host }}/{{ current.slug }}
+                </a>
+            </div>
+
+            <div class="details__methods">
+                <span class="details__method">GET</span>
+                <span class="details__method">POST</span>
+                <span class="details__method">PUT</span>
+                <span class="details__method">PATCH</span>
+                <span class="details__method">DELETE</span>
+            </div>
+        </div>
+
         <div class="details__actions">
             <a href="" class="details__edit">
                 <span class="fas fa-pen fa-fw"></span>

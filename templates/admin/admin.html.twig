@@ -1,4 +1,20 @@
 {% extends 'window.html.twig' %}
+{% if current %}
+    {% set pageTitle = current.name ~ ' | Mocker' %}
+{% else %}
+    {% set pageTitle = 'Mocker' %}
+{% endif %}
+    {% block title %}{{ pageTitle }}{% endblock %}
+
+
+
+{% if app.request.port == 80 %}
+    {% set host = 'http://' ~ app.request.host %}
+{% elseif app.request.port == 443 %}
+    {% set host = 'https://' ~ app.request.host %}
+{% else %}
+    {% set host = 'http://' ~ app.request.host ~ ':' ~ app.request.port %}
+{% endif %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('admin') }}

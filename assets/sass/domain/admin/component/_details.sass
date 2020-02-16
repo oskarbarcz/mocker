@@ -8,13 +8,24 @@
     margin: 10px 0
     font-size: 0.8em
     font-weight: 300
+  &__top
+    display: flex
+    justify-content: space-between
+  &__times
+    display: flex
+    flex-direction: column
+  &__timeline
+    font-weight: 300
+    font-size: 0.7em
+    color: #075fba
+    line-height: 1.15
   &__code
     font-family: "Roboto Mono", monospace
     font-size: 0.7em
   &__exact-code
     min-height: 300px
   &__actions
-    margin: 0
+    margin: 10px
     display: flex
     position: absolute
     right: 0
@@ -22,12 +33,13 @@
   &__edit, &__delete
     @include shadow(1)
     border-radius: 5px
-    margin: 10px 5px
+    margin: 5px
     text-transform: uppercase
     font-size: 0.8em
     display: block
     text-decoration: none
-    padding: 8px 12px
+    padding: 8px 16px
+    font-weight: 500
     color: white
     transition: 0.1s ease-in-out all
   &__edit
@@ -38,3 +50,44 @@
     background: #C82829
     &:hover, &:focus
       background: darken(#C82829, 10)
+  &__access
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin: 15px 0
+  &__link
+    display: flex
+    align-items: center
+  &__copy-icon
+    outline: none
+    color: #FFFFFF
+    border: none
+    background: #075fba
+    width: 30px
+    height: 30px
+    display: flex
+    font-size: 0.7em
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    &:hover, &:focus
+      font-size: 0.8em
+      background: darken(#075fba, 10)
+      cursor: pointer
+  &__link-content
+    font-size: 0.75em
+    padding: 0 5px
+    color: #444444
+    font-weight: 300
+  &__methods
+    display: inline-block
+  &__method
+    color: #075fba
+    font-weight: bold
+    font-size: 0.8em
+    margin: 0 2px
+    font-family: "Roboto Mono", monospace
+    transition: 0.1s ease-in-out all
+    &:hover, &:focus
+      color: darken(#075fba, 15)
+      cursor: pointer

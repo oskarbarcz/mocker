@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ApiController
 {
     /**
-     * @Route("/api/{slug}")
+     * @Route("/api/{slug}", name="api_general")
      * @param Resource|null $resource
      * @return Response
      */
