@@ -7,6 +7,8 @@ application:
     title: 'Zasoby'
     addNewResource: 'Dodaj nowy zasób'
   details:
+    messages:
+      notChosen: 'Wybierz zasób z listy po lewej'
     time:
       added: 'Dodano'
     buttons:

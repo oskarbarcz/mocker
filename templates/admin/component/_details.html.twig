@@ -47,5 +47,11 @@
                 {% trans %}application.details.buttons.remove{% endtrans %}
             </a>
         </div>
+    {% else %}
+        <div class="details__no-info-container">
+            <h2 class="details__no-info-title">
+                {% trans %}application.details.messages.notChosen{% endtrans %}
+            </h2>
+        </div>
     {% endif %}
 </article>

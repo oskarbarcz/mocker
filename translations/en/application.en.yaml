@@ -7,6 +7,8 @@ application:
     title: 'Resources'
     addNewResource: 'Add new resource'
   details:
+    messages:
+      notChosen: 'Choose resource from list on the left'
     time:
       added: 'Added'
     buttons:
