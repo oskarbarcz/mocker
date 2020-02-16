@@ -2,12 +2,29 @@
   position: relative
   &__title
     margin: 10px
-    font-weight: bold
-    font-size: 1.2em
+    font-weight: 500
+    font-size: 1.4em
+    max-width: 80%
   &__desc
     margin: 10px
     font-size: 0.8em
+    max-width: 80%
+    font-weight: 300
   &__settings
+    position: absolute
+    right: 0
+    top: 0
+    padding: 10px
+    width: 40px
+    height: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    text-decoration: none
+    color: #292929
+    &:hover, &:focus
+      background: darken(white, 10)
+  &__actions
     margin: 0
     display: flex
     position: absolute

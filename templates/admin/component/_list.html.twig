@@ -9,14 +9,20 @@
                 <li class="sidebar__element element element--selected">
                     <a href="{{ url('app_index', {'slug': resource.slug}) }}" class="element__link">
                         <span class="element__title">{{ resource.name }}</span>
-                        <span class="element__slug">/api/{{ resource.slug }}</span>
-                    </a>kz
+                        <span class="element__slug">
+                            <span class="fas fa-globe fa-fw element__url-icon"></span>
+                            /api/{{ resource.slug }}
+                        </span>
+                    </a>
                 </li>
             {% else %}
                 <li class="sidebar__element element">
                     <a href="{{ url('app_index', {'slug': resource.slug}) }}" class="element__link">
                         <span class="element__title">{{ resource.name }}</span>
-                        <span class="element__slug">/api/{{ resource.slug }}</span>
+                        <span class="element__slug">
+                            <span class="fas fa-globe fa-fw element__url-icon"></span>
+                            /api/{{ resource.slug }}
+                        </span>
                     </a>
                 </li>
             {% endif %}

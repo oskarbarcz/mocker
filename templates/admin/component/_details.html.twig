@@ -4,10 +4,15 @@
         <p class="details__desc">
             {{ current.description }}
         </p>
-        <code lang="json">
+        <pre>
+            <code lang="json">
             {{ current.content }}
         </code>
-        <div class="details__settings">
+        </pre>
+        <a class="details__settings" href="">
+            <span class="fas fa-cog"></span>
+        </a>
+        <div class="details__actions">
             <a href="" class="details__edit">
                 <span class="fas fa-pen fa-fw"></span>
                 Edytuj
