@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block window %}
-    {% include 'admin/component/_list.html.twig' %}
+    {% trans_default_domain 'application' %}
+    {% include 'admin/component/_sidebar.html.twig' %}
     {% include 'admin/component/_form.html.twig' %}
     <a class="window__settings" href="{{ url('app_settings') }}">
         <span class="fas fa-cog"></span>
-        Ustawienia aplikacji
+        {% trans %}application.window.screenSwitch.launchSettings{% endtrans %}
     </a>
 {% endblock %}
 

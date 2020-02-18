@@ -1,7 +1,8 @@
+{% trans_default_domain 'application' %}
 <nav class="sidebar">
     <h1 class="sidebar__title">
         <span class="fas fa-code fa-fw"></span>
-        Zasoby
+        {% trans %}application.sidebar.title{% endtrans %}
     </h1>
     <ul class="sidebar__list">
         {% for resource in resources %}
@@ -29,6 +30,6 @@
         {% endfor %}
     </ul>
     <a class="sidebar__new-resource" href="{{ url('app_add-resource') }}">
-        <span class="fas fa-plus fa-fw"></span>
+        <span title="{{ 'application.sidebar.addNewResource'|trans }}" class="fas fa-plus fa-fw"></span>
     </a>
 </nav>

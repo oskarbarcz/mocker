@@ -1,0 +1,18 @@
+application:
+  window:
+    screenSwitch:
+      launchSettings: 'App settings'
+      backToApp: 'Back to app'
+  sidebar:
+    title: 'Resources'
+    addNewResource: 'Add new resource'
+  details:
+    messages:
+      notChosen: 'Choose resource from list on the left'
+    time:
+      added: 'Added'
+    buttons:
+      edit: 'Edit'
+      remove: 'Remove'
+  settings:
+    title: 'Settings'
