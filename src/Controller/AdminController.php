@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Resource;
 use App\Form\ResourceType;
 use App\Repository\ResourceRepository;
+use DateTime;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,11 +48,14 @@ class AdminController extends AbstractController
     }
 
     /**
+     * Handles adding resource form
      * @Route("/admin/add-resource", name="app_add-resource")
+     *
      * @param Request $request
      * @return Response
+     * @throws Exception
      */
-    public function addNewResource(Request $request): Response
+    public function createResource(Request $request): Response
     {
         $form = $this->createForm(ResourceType::class);
         $form->handleRequest($request);
@@ -66,8 +71,14 @@ class AdminController extends AbstractController
             );
         }
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($form->getData());
+
+        /** @var Resource $resource */
+        $resource = $form->getData();
+        $resource->setCreatedAt(new DateTime());
+
+        $entityManager->persist($resource);
         $entityManager->flush();
+
         return $this->redirectToRoute('app_index');
     }
 
