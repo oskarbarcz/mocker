@@ -5,62 +5,12 @@
         Dodawanie zasobu
     </h1>
     {{ form_start(form) }}
-    <div class="form__row row">
-        <h2 class="row__title">{{ form_label(form.name) }}</h2>
 
-        {% if form_errors(form.slug) %}
-            <span class="row__error">{{ form_errors(form.name) }}</span>
-        {% endif %}
+    {% include 'form/_widget.html.twig' with {'field': form.name} only %}
+    {% include 'form/_widget.html.twig' with {'field': form.slug} only %}
+    {% include 'form/_widget.html.twig' with {'field': form.description} only %}
+    {% include 'form/_widget.html.twig' with {'field': form.content} only %}
 
-        <div class="row__widget">{{ form_widget(form.name) }}</div>
-
-        {% if form_help(form.name) %}
-            <span class="row__help">{{ form_help(form.name) }}</span>
-        {% endif %}
-
-    </div>
-
-    <div class="form__row row">
-        <h2 class="row__title">{{ form_label(form.slug) }}</h2>
-
-        {% if form_errors(form.slug) %}
-            <span class="row__error">{{ form_errors(form.slug) }}</span>
-        {% endif %}
-
-        <div class="row__widget">{{ form_widget(form.slug) }}</div>
-
-        {% if form_help(form.slug) %}
-            <span class="row__help">{{ form_help(form.slug) }}</span>
-        {% endif %}
-    </div>
-
-    <div class="form__row row">
-        <h2 class="row__title">{{ form_label(form.description) }}</h2>
-
-        {% if form_errors(form.description) %}
-            <span class="row__error">{{ form_errors(form.description) }}</span>
-        {% endif %}
-
-        <div class="row__widget">{{ form_widget(form.description) }}</div>
-
-        {% if form_help(form.slug) %}
-            <span class="row__help">{{ form_help(form.description) }}</span>
-        {% endif %}
-    </div>
-
-    <div class="form__row row">
-        <h2 class="row__title">{{ form_label(form.content) }}</h2>
-
-        {% if form_errors(form.content) %}
-            <span class="row__error">{{ form_errors(form.content) }}</span>
-        {% endif %}
-
-        <div class="row__widget">{{ form_widget(form.content) }}</div>
-
-        {% if form_help(form.content) %}
-            <span class="row__help">{{ form_help(form.content) }}</span>
-        {% endif %}
-    </div>
     <input type="submit" value="Zapisz">
     {{ form_end(form) }}
 </section>

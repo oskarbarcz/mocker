@@ -1,0 +1,8 @@
+forms:
+  fields:
+    name:
+      label: "Nazwa zasobu"
+      help: ""
+    slug:
+      label: "Identyfikator URI"
+      help: "Identyfikator może zawierać tylko litery, liczby i znaki '_', '-'. Identyfikator ten musi być unikalny."

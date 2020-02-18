@@ -4,8 +4,7 @@ namespace App\Form;
 
 use App\Entity\Resource;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\{TextareaType, TextType};
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,8 +18,8 @@ class ResourceType extends AbstractType
                 'name',
                 TextType::class,
                 [
-                    'label' => 'forms.fields.label.name',
-                    'help'  => 'forms.fields.help.name',
+                    'label' => 'forms.fields.name.label',
+                    'help'  => 'forms.fields.name.help',
                 ]
             )
             ->add(
@@ -28,8 +27,8 @@ class ResourceType extends AbstractType
                 TextareaType::class,
                 [
                     'required' => false,
-                    'label'    => 'forms.fields.label.slug',
-                    'help'     => 'forms.fields.help.slug',
+                    'label'    => 'forms.fields.slug.label',
+                    'help'     => 'forms.fields.slug.help',
                 ]
             )
             ->add(
@@ -37,8 +36,8 @@ class ResourceType extends AbstractType
                 TextareaType::class,
                 [
                     'required' => false,
-                    'label'    => 'forms.fields.label.description',
-                    'help'     => 'forms.fields.help.description',
+                    'label'    => 'forms.fields.description.label',
+                    'help'     => 'forms.fields.description.help',
 
                 ]
             )
@@ -47,8 +46,8 @@ class ResourceType extends AbstractType
                 TextareaType::class,
                 [
                     'required' => false,
-                    'label'    => 'forms.fields.label.content',
-                    'help'     => 'forms.fields.help.content',
+                    'label'    => 'forms.fields.content.label',
+                    'help'     => 'forms.fields.content.help',
                 ]
             );
     }
