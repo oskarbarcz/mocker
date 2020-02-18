@@ -1,5 +1,9 @@
+{% trans_default_domain 'forms' %}
 <section class="form">
-    <h1 class="form__title">Dodawanie zasobu</h1>
+    <h1 class="form__title">
+        <span class="fas fa-plus fa-fw"></span>
+        Dodawanie zasobu
+    </h1>
     {{ form_start(form) }}
     <div class="form__row row">
         <h2 class="row__title">{{ form_label(form.name) }}</h2>
@@ -29,6 +33,21 @@
             <span class="row__help">{{ form_help(form.slug) }}</span>
         {% endif %}
     </div>
+
+    <div class="form__row row">
+        <h2 class="row__title">{{ form_label(form.description) }}</h2>
+
+        {% if form_errors(form.description) %}
+            <span class="row__error">{{ form_errors(form.description) }}</span>
+        {% endif %}
+
+        <div class="row__widget">{{ form_widget(form.description) }}</div>
+
+        {% if form_help(form.slug) %}
+            <span class="row__help">{{ form_help(form.description) }}</span>
+        {% endif %}
+    </div>
+
     <div class="form__row row">
         <h2 class="row__title">{{ form_label(form.content) }}</h2>
 
