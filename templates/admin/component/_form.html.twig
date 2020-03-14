@@ -1,5 +1,21 @@
+{% trans_default_domain 'forms' %}
 <section class="form">
+    <h1 class="form__title">
+        <span class="fas fa-plus fa-fw"></span>
+        Dodawanie zasobu
+    </h1>
     {{ form_start(form) }}
-    <input type="submit" value="Zapisz">
+
+    {% include 'form/_widget.html.twig' with {'field': form.name} only %}
+    {% include 'form/_widget.html.twig' with {'field': form.slug} only %}
+    {% include 'form/_widget.html.twig' with {'field': form.description} only %}
+    {% include 'form/_widget.html.twig' with {'field': form.content} only %}
+
+    <div class="form__bottomline">
+        <button class="form__save" type="submit">
+            <span class="fas fa-save"></span>
+            {% trans %}forms.fields.save{% endtrans %}
+        </button>
+    </div>
     {{ form_end(form) }}
 </section>

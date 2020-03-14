@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
+use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 
 /**
  * Represents database Resource entity
  *
  * @ORM\Entity(repositoryClass="App\Repository\ResourceRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Resource
 {
@@ -102,10 +105,15 @@ class Resource
         return $this->createdAt;
     }
 
-    public function setCreatedAt(DateTimeInterface $createdAt): self
+    /**
+     * Sets automatically date while persisting
+     * @ORM\PrePersist()
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function setCreatedAt(): void
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        $this->createdAt = new DateTime();
     }
 }
