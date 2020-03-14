@@ -4,8 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Resource;
 use App\Form\ResourceType;
-use App\Repository\ResourceRepository;
-use DateTime;
+use App\Service\ResourceManager;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,11 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
-    private ResourceRepository $resourceRepository;
+    private ResourceManager $resourceManager;
 
-    public function __construct(ResourceRepository $resourceRepository)
+    public function __construct(ResourceManager $resourceManager)
     {
-        $this->resourceRepository = $resourceRepository;
+        $this->resourceManager = $resourceManager;
     }
 
     /**
@@ -29,12 +28,12 @@ class AdminController extends AbstractController
      */
     public function index(string $slug = null): Response
     {
-        $currentResource = ($slug !== null) ? $this->resourceRepository->findOneBy(['slug' => $slug]) : null;
+        $currentResource = ($slug !== null) ? $this->resourceManager->getOne($slug) : null;
 
         return $this->render(
             'admin/admin.html.twig',
             [
-                'resources' => $this->resourceRepository->findAll(),
+                'resources' => $this->resourceManager->getAll(),
                 'current'   => $currentResource,
             ]
         );
@@ -58,19 +57,12 @@ class AdminController extends AbstractController
                 'admin/form.html.twig',
                 [
                     'form'      => $form->createView(),
-                    'resources' => $this->resourceRepository->findAll(),
+                    'resources' => $this->resourceManager->getAll(),
                     'current'   => null,
                 ]
             );
         }
-        $entityManager = $this->getDoctrine()->getManager();
-
-        /** @var Resource $resource */
-        $resource = $form->getData();
-        $resource->setCreatedAt(new DateTime());
-
-        $entityManager->persist($resource);
-        $entityManager->flush();
+        $this->resourceManager->persist($form->getData());
 
         return $this->redirectToRoute('app_index');
     }
@@ -94,15 +86,12 @@ class AdminController extends AbstractController
                 'admin/form.html.twig',
                 [
                     'form'      => $form->createView(),
-                    'resources' => $this->resourceRepository->findAll(),
+                    'resources' => $this->resourceManager->getAll(),
                     'current'   => $resource,
                 ]
             );
         }
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $entityManager->persist($resource);
-        $entityManager->flush();
+        $this->resourceManager->persist($resource);
 
         return $this->redirectToRoute('app_index');
     }
@@ -118,9 +107,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('app_index');
         }
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($resource);
-        $entityManager->flush();
+        $this->resourceManager->delete($resource);
         return $this->redirectToRoute('app_index');
     }
 
