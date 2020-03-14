@@ -12,3 +12,4 @@ forms:
     content:
       label: "Zawartość API"
       help: "Zawartość endpointu (JSON)"
+    save: "Zapisz"

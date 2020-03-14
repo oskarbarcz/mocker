@@ -11,6 +11,11 @@
     {% include 'form/_widget.html.twig' with {'field': form.description} only %}
     {% include 'form/_widget.html.twig' with {'field': form.content} only %}
 
-    <input type="submit" value="Zapisz">
+    <div class="form__bottomline">
+        <button class="form__save" type="submit">
+            <span class="fas fa-save"></span>
+            {% trans %}forms.fields.save{% endtrans %}
+        </button>
+    </div>
     {{ form_end(form) }}
 </section>

@@ -5,3 +5,27 @@
     margin: 15px
     span.fas
       color: #075fba
+
+  &__bottomline
+    width: 100%
+    display: flex
+    justify-content: flex-end
+    margin: 5px 15px
+  &__save
+    font-family: $text-font-stack
+    @include shadow(1)
+    border: 0
+    background: #075fba
+    border-radius: 5px
+    margin: 5px 0
+    text-transform: uppercase
+    font-size: 0.8em
+    display: block
+    text-decoration: none
+    padding: 8px 16px
+    color: white
+    transition: 0.1s ease-in-out all
+    font-weight: 500
+    &:hover, &:focus
+      cursor: pointer
+      background: darken(#075fba, 10)
