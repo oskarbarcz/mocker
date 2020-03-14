@@ -23,13 +23,6 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/")
-     */
-    public function redirectToAdmin(): Response
-    {
-        return $this->redirectToRoute('app_index');
-    }
-
-    /**
      * @Route("/admin/r/{slug}", name="app_index")
      * @param string|null $slug
      * @return Response
@@ -48,7 +41,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * Handles adding resource form
+     * Handles resource adding
      * @Route("/admin/add-resource", name="app_add-resource")
      *
      * @param Request $request
@@ -75,6 +68,38 @@ class AdminController extends AbstractController
         /** @var Resource $resource */
         $resource = $form->getData();
         $resource->setCreatedAt(new DateTime());
+
+        $entityManager->persist($resource);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_index');
+    }
+
+    /**
+     * Handles resource edit
+     * @Route("/admin/edit/{slug}", name="app_edit-resource")
+     *
+     * @param Request       $request
+     * @param Resource|null $resource
+     * @return Response
+     * @throws Exception
+     */
+    public function editResource(Request $request, Resource $resource = null): Response
+    {
+        $form = $this->createForm(ResourceType::class, $resource);
+        $form->handleRequest($request);
+
+        if (!$form->isSubmitted() || !$form->isValid()) {
+            return $this->render(
+                'admin/form.html.twig',
+                [
+                    'form'      => $form->createView(),
+                    'resources' => $this->resourceRepository->findAll(),
+                    'current'   => $resource,
+                ]
+            );
+        }
+        $entityManager = $this->getDoctrine()->getManager();
 
         $entityManager->persist($resource);
         $entityManager->flush();

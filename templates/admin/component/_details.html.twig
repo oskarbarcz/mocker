@@ -38,7 +38,7 @@
         </div>
 
         <div class="details__actions">
-            <a href="" class="details__edit">
+            <a href="{{ url('app_edit-resource', {'slug': current.slug}) }}" class="details__edit">
                 <span class="fas fa-pen fa-fw"></span>
                 {% trans %}application.details.buttons.edit{% endtrans %}
             </a>
