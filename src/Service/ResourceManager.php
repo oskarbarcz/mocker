@@ -6,6 +6,11 @@ use App\Entity\Resource;
 use App\Repository\ResourceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
+/**
+ * Facade for resource manipulation tools
+ *
+ * @package App\Service
+ */
 class ResourceManager
 {
     private EntityManagerInterface $entityManager;
