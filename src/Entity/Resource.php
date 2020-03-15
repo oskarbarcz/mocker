@@ -6,11 +6,13 @@ use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Exception;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Represents database Resource entity
  *
  * @ORM\Entity(repositoryClass="App\Repository\ResourceRepository")
+ * @ORM\EntityListeners({"App\EventListener\ResourceNameSlugger"})
  * @ORM\HasLifecycleCallbacks()
  */
 class Resource
@@ -23,6 +25,7 @@ class Resource
     private ?int $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
     private ?string $name = null;
@@ -33,6 +36,8 @@ class Resource
     private ?string $slug = null;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Json()
      * @ORM\Column(type="text", nullable=true)
      */
     private ?string $content = null;
@@ -60,7 +65,6 @@ class Resource
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -72,7 +76,6 @@ class Resource
     public function setContent(?string $content): self
     {
         $this->content = $content;
-
         return $this;
     }
 
@@ -84,7 +87,6 @@ class Resource
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
-
         return $this;
     }
 
@@ -96,7 +98,6 @@ class Resource
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
         return $this;
     }
 
