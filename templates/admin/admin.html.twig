@@ -31,26 +31,31 @@
 {% endblock %}
 
 {% block dialogBox %}
-    <div class="dialog">
+    <div class="dialog dialog--hidden">
         <div class="dialog__background"></div>
-        <main class="dialog__window">
-            <h2 class="dialog__title">Window title</h2>
-            <p class="dialog__content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam corporis deserunt impedit iste minima
-                neque nostrum obcaecati odit officia perspiciatis? Ad, aliquam architecto consequatur cum delectus
-                dolore enim odit repellendus.
-            </p>
-            <div class="dialog__buttons">
-                <button class="dialog__return">
-                    <span class="fas fa-chevron-left fa-fw"></span>
-                    Wróć
-                </button>
-                <a href="">
-                    <span class="fas fa-trash fa-fw"></span>
-                    Usuń
-                </a>
-            </div>
-        </main>
+        <div class="dialog__foreground">
+            <main class="dialog__window">
+                <h2 class="dialog__title">
+                    <span class="fas fa-exclamation fa-fw dialog__icon"></span>
+                    Window title
+                </h2>
+                <p class="dialog__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam corporis deserunt impedit iste
+                    minima neque nostrum obcaecati odit officia perspiciatis? Ad, aliquam architecto consequatur cum
+                    delectus dolore enim odit repellendus.
+                </p>
+                <div class="dialog__buttons">
+                    <button class="dialog__return">
+                        <span class="fas fa-chevron-left fa-fw"></span>
+                        Wróć
+                    </button>
+                    <a class="dialog__proceed" href="">
+                        <span class="fas fa-trash fa-fw"></span>
+                        Usuń
+                    </a>
+                </div>
+            </main>
+        </div>
     </div>
 {% endblock %}
 

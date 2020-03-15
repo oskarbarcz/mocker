@@ -1,0 +1,72 @@
+.dialog
+  position: absolute
+  width: 100%
+  height: 100%
+  left: 0
+  right: 0
+  top: 0
+  &--hidden
+    display: none
+  &__background
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    right: 0
+    top: 0
+    background: white
+    opacity: 0.7
+    z-index: 10
+  &__foreground
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    right: 0
+    top: 0
+    z-index: 100
+    display: flex
+    justify-content: center
+    align-items: center
+  &__window
+    background: white
+    max-width: 450px
+    @include shadow(2)
+    padding: 15px
+  &__icon
+    color: #cc3331
+  &__title
+    font-weight: 500
+    font-size: 1.1em
+  &__content
+    font-weight: 300
+    font-size: 0.8em
+    margin: 10px 0 15px
+  &__buttons
+    display: flex
+    justify-content: flex-end
+    width: 100%
+  &__return, &__proceed
+    @include shadow(1)
+    border-radius: 5px
+    margin: 0 5px
+    text-transform: uppercase
+    font-family: $text-font-stack
+    font-size: 0.75em
+    display: block
+    text-decoration: none
+    padding: 7.5px 15px
+    font-weight: 500
+    color: white
+    transition: 0.1s ease-in-out all
+    border: 0
+    cursor: pointer
+  &__return
+    background: #075fba
+    &:hover, &:focus
+      background: darken(#075fba, 10)
+  &__proceed
+    background: #C82829
+    &:hover, &:focus
+      background: darken(#C82829, 10)
+

@@ -18,6 +18,8 @@ if (document.querySelector('.details').getAttribute('data-hasCode')) {
 
 // Init and setup dialog box
 const button = document.querySelector('.details__delete');
+const dialog = document.querySelector('.dialog');
 button.addEventListener('click', event => {
   const box = new DialogBox();
+  dialog.classList.toggle('dialog--hidden');
 });
