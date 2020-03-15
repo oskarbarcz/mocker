@@ -19,8 +19,21 @@ class ResourceRepository extends ServiceEntityRepository
         parent::__construct($registry, Resource::class);
     }
 
-    public function isSlugFree(string $slug): bool
+    public function isSlugFree(?string $slug): bool
     {
+        if ($slug === null) {
+            return false;
+        }
+
         return $this->count(['slug' => $slug]) === 0;
+    }
+
+    public function isSlugCurrent(?string $slug, int $id): bool
+    {
+        if ($slug === null) {
+            return false;
+        }
+
+        return $this->count(['slug' => $slug, 'id' => $id]) === 1;
     }
 }

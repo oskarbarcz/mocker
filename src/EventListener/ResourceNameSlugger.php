@@ -17,15 +17,27 @@ class ResourceNameSlugger
         $this->repository = $repository;
     }
 
-    /**
-     * @param Resource $resource
-     */
     public function prePersist(Resource $resource): void
     {
         $slug = $resource->getSlug();
         if ($this->repository->isSlugFree($slug)) {
             // if slug is set and is free
             $resource->setSlug($slug);
+        }
+
+        $this->autogenerate($resource);
+    }
+
+    public function preUpdate(Resource $resource): void
+    {
+        if ($this->repository->isSlugFree($resource->getSlug())) {
+            // new slug were chosen and it's free
+            return;
+        }
+
+        if ($this->repository->isSlugCurrent($resource->getSlug(), $resource->getId())) {
+            // old slug used
+            return;
         }
 
         $this->autogenerate($resource);
