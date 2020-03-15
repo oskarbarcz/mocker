@@ -78,6 +78,10 @@ class AdminController extends AbstractController
      */
     public function editResource(Request $request, Resource $resource = null): Response
     {
+        if (!$resource instanceof Resource) {
+            return $this->redirectToRoute('app_index');
+        }
+
         $form = $this->createForm(ResourceType::class, $resource);
         $form->handleRequest($request);
 

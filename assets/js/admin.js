@@ -12,6 +12,5 @@ if (document.querySelector('.details').getAttribute('data-hasCode')) {
   // init highlighter
   hljs.registerLanguage('javascript', json);
   hljs.initHighlightingOnLoad();
-
 }
 
