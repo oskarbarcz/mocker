@@ -16,10 +16,17 @@ if (document.querySelector('.details').getAttribute('data-hasCode')) {
   hljs.initHighlightingOnLoad();
 }
 
-// Init and setup dialog box
-const button = document.querySelector('.details__delete');
-const dialog = document.querySelector('.dialog');
-button.addEventListener('click', event => {
-  const box = new DialogBox();
-  dialog.classList.toggle('dialog--hidden');
+// modal box settings
+const box = new DialogBox({
+  dialogBox: document.querySelector('.dialog'),
+  activation: document.querySelector('.details__delete'),
+  close: document.querySelector('.dialog__return'),
+  proceed: document.querySelector('.dialog__proceed')
 });
+
+box.init({
+  title: 'abcd',
+  content: 'efgh'
+});
+
+

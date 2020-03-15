@@ -31,18 +31,15 @@
 {% endblock %}
 
 {% block dialogBox %}
-    <div class="dialog dialog--hidden">
+    <div class="dialog dialog--hidden" aria-hidden="true">
         <div class="dialog__background"></div>
         <div class="dialog__foreground">
             <main class="dialog__window">
                 <h2 class="dialog__title">
                     <span class="fas fa-exclamation fa-fw dialog__icon"></span>
-                    Window title
+                    <span class="dialog__title-content"></span>
                 </h2>
                 <p class="dialog__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam corporis deserunt impedit iste
-                    minima neque nostrum obcaecati odit officia perspiciatis? Ad, aliquam architecto consequatur cum
-                    delectus dolore enim odit repellendus.
                 </p>
                 <div class="dialog__buttons">
                     <button class="dialog__return">
