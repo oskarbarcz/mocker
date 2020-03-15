@@ -2,7 +2,9 @@ import hljs from 'highlight.js/lib/highlight';
 import json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/atom-one-light.css';
 import '../sass/domain/admin/index.sass';
+import DialogBox from './module/DialogBox';
 
+// JSON syntax highlighting
 if (document.querySelector('.details').getAttribute('data-hasCode')) {
   // make JSON pretty with internal tools
   const code = document.querySelector('code.json');
@@ -14,3 +16,8 @@ if (document.querySelector('.details').getAttribute('data-hasCode')) {
   hljs.initHighlightingOnLoad();
 }
 
+// Init and setup dialog box
+const button = document.querySelector('.details__delete');
+button.addEventListener('click', event => {
+  const box = new DialogBox();
+});

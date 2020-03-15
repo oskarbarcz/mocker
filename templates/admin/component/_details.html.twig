@@ -42,10 +42,10 @@
                 <span class="fas fa-pen fa-fw"></span>
                 {% trans %}application.details.buttons.edit{% endtrans %}
             </a>
-            <a href="{{ url('app_resource-delete', {'slug': current.slug}) }}" class="details__delete">
+            <button data-href="{{ url('app_resource-delete', {'slug': current.slug}) }}" class="details__delete">
                 <span class="fas fa-trash fa-fw"></span>
                 {% trans %}application.details.buttons.remove{% endtrans %}
-            </a>
+            </button>
         </div>
     {% else %}
         <div class="details__no-info-container">
