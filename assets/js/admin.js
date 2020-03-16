@@ -8,6 +8,7 @@ import ThemeSwitcher from './module/ThemeSwitcher';
 
 // JSON syntax highlighting
 const details = document.querySelector('.details');
+
 if (exist(details)) {
   if (details.getAttribute('data-hasCode')) {
     // make JSON pretty with internal tools
@@ -21,7 +22,7 @@ if (exist(details)) {
   }
 }
 
-// modal box settings
+// Dialog box behavior
 const dialogBox = document.querySelector('.dialog');
 
 if (exist(dialogBox)) {
@@ -35,7 +36,7 @@ if (exist(dialogBox)) {
   box.init();
 }
 
-// theme switcher actions
+// Theme switcher behavior
 const switcher = document.querySelector('.theme-select');
 
 if (exist(switcher)) {
