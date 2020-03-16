@@ -3,18 +3,16 @@ class DialogBox {
     this.props = props;
   }
 
-  init (windowData) {
-    // attach correct remove link
-    this.props.proceed.href = this.props.activation.getAttribute('data-href');
+  init () {
     this.attachListeners();
   }
 
   attachListeners () {
-    this.props.activation.addEventListener('click', event => {
+    this.props.activation.addEventListener('click', () => {
       this.open();
     });
 
-    this.props.close.addEventListener('click', event => {
+    this.props.close.addEventListener('click', () => {
       this.close();
     });
   }

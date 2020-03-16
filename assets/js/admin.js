@@ -24,9 +24,6 @@ const box = new DialogBox({
   proceed: document.querySelector('.dialog__proceed')
 });
 
-box.init({
-  title: 'abcd',
-  content: 'efgh'
-});
+box.init();
 
 

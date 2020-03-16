@@ -31,29 +31,16 @@
 {% endblock %}
 
 {% block dialogBox %}
-    <div class="dialog dialog--hidden" aria-hidden="true">
-        <div class="dialog__background"></div>
-        <div class="dialog__foreground">
-            <main class="dialog__window">
-                <h2 class="dialog__title">
-                    <span class="fas fa-exclamation fa-fw dialog__icon"></span>
-                    <span class="dialog__title-content"></span>
-                </h2>
-                <p class="dialog__content">
-                </p>
-                <div class="dialog__buttons">
-                    <button class="dialog__return">
-                        <span class="fas fa-chevron-left fa-fw"></span>
-                        Wróć
-                    </button>
-                    <a class="dialog__proceed" href="">
-                        <span class="fas fa-trash fa-fw"></span>
-                        Usuń
-                    </a>
-                </div>
-            </main>
-        </div>
-    </div>
+    {% if current is defined and current is not null %}
+        {{ dump(current) }}
+        {% include 'admin/component/dialog-box.html.twig' with {
+            'title': 'Removing resource',
+            'content': 'This action cannot be undone. Are you sure?',
+            'cancel': {text: 'Back', icon: 'fa-chevron-left'},
+            'proceed': {text: 'Remove', icon: 'fa-trash'},
+            'link':  url('app_resource-delete', {'slug': current.slug})
+        } only %}
+    {% endif %}
 {% endblock %}
 
 
