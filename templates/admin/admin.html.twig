@@ -33,7 +33,6 @@
 {% block dialogBox %}
     {% trans_default_domain 'application' %}
     {% if current is defined and current is not null %}
-        {{ dump(current) }}
         {% include 'admin/component/dialog-box.html.twig' with {
             'title': 'application.dialog-box.remove.title'|trans,
             'content': 'application.dialog-box.remove.content'|trans,
