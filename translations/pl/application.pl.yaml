@@ -14,5 +14,11 @@ application:
     buttons:
       edit: 'Edytuj'
       remove: 'Usuń'
+  dialog-box:
+    remove:
+      title: 'Potwierdź usunięcie zasobu'
+      content: 'Zamierzasz usunąć zasób. Tej akcji nie można cofnąć. Czy na pewno chcesz kontynuować?'
+      cancel: 'Wróć'
+      proceed: 'Usuń'
   settings:
     title: 'Ustawienia'

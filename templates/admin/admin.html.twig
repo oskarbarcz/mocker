@@ -31,13 +31,14 @@
 {% endblock %}
 
 {% block dialogBox %}
+    {% trans_default_domain 'application' %}
     {% if current is defined and current is not null %}
         {{ dump(current) }}
         {% include 'admin/component/dialog-box.html.twig' with {
-            'title': 'Removing resource',
-            'content': 'This action cannot be undone. Are you sure?',
-            'cancel': {text: 'Back', icon: 'fa-chevron-left'},
-            'proceed': {text: 'Remove', icon: 'fa-trash'},
+            'title': 'application.dialog-box.remove.title'|trans,
+            'content': 'application.dialog-box.remove.content'|trans,
+            'cancel': {text: 'application.dialog-box.remove.cancel'|trans, icon: 'fa-chevron-left'},
+            'proceed': {text: 'application.dialog-box.remove.proceed'|trans, icon: 'fa-trash'},
             'link':  url('app_resource-delete', {'slug': current.slug})
         } only %}
     {% endif %}

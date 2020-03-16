@@ -14,5 +14,11 @@ application:
     buttons:
       edit: 'Edit'
       remove: 'Remove'
+  dialog-box:
+    remove:
+      title: 'Confirm resource delete'
+      content: 'You are going to delete resource. This action cannot be undone. Are you sure to proceed?'
+      cancel: 'Back'
+      proceed: 'Remove'
   settings:
     title: 'Settings'
