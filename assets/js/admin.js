@@ -2,7 +2,9 @@ import hljs from 'highlight.js/lib/highlight';
 import json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/atom-one-light.css';
 import '../sass/domain/admin/index.sass';
+import DialogBox from './module/DialogBox';
 
+// JSON syntax highlighting
 if (document.querySelector('.details').getAttribute('data-hasCode')) {
   // make JSON pretty with internal tools
   const code = document.querySelector('code.json');
@@ -13,4 +15,15 @@ if (document.querySelector('.details').getAttribute('data-hasCode')) {
   hljs.registerLanguage('javascript', json);
   hljs.initHighlightingOnLoad();
 }
+
+// modal box settings
+const box = new DialogBox({
+  dialogBox: document.querySelector('.dialog'),
+  activation: document.querySelector('.details__delete'),
+  close: document.querySelector('.dialog__return'),
+  proceed: document.querySelector('.dialog__proceed')
+});
+
+box.init();
+
 
