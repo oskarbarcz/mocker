@@ -12,6 +12,6 @@ Encore
   .enableSassLoader()
   .enableIntegrityHashes()
   .configureBabel(() => {}, { useBuiltIns: 'usage', corejs: 3 })
-  .copyFiles({ from: './assets/images', to: 'images/[path][name].[ext]' });
+  .copyFiles({ from: './assets/image', to: 'image/[path][name].[ext]' });
 
 module.exports = Encore.getWebpackConfig();
