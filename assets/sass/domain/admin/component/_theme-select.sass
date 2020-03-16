@@ -1,0 +1,31 @@
+.theme-select
+  @include shadow(1)
+  display: flex
+  border-radius: 5px
+  width: 70%
+  margin: 10px auto
+  &__button
+    width: calc(100% / 3)
+    padding: 7.5px 15px
+    font-weight: 500
+    text-transform: uppercase
+    background: darken(white, 5)
+    font-size: 0.75em
+    transition: 0.1s ease-in-out all
+    cursor: pointer
+    font-family: $text-font-stack
+    border: 0
+    outline: none
+    &:hover, &:focus
+      background: darken(white, 15)
+    &:first-of-type
+      border-bottom-left-radius: 5px
+      border-top-left-radius: 5px
+    &:last-of-type
+      border-top-right-radius: 5px
+      border-bottom-right-radius: 5px
+    &--active
+      background: #075fba
+      color: white
+      &:hover, &:focus
+        background: darken(#075fba, 10)
