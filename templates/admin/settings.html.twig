@@ -7,11 +7,61 @@
 {% block window %}
     {% trans_default_domain 'application' %}
     <div class="settings">
-        <h2 class="settings__title">
-            <span class="fas fa-cog fa-fw"></span>
-            {% trans %}application.settings.title{% endtrans %}
-        </h2>
+        <div class="settings__column">
+            <h1 class="settings__title">
+                <span class="fas fa-cog fa-fw"></span>
+                {% trans %}application.settings.title{% endtrans %}
+            </h1>
+            <section class="settings__section">
+                <h2 class="settings__subtitle">
+                    <span class="fas fa-chevron-right fa-fw settings__section-icon"></span>
+                    Appearance
+                </h2>
+                <p class="settings__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi asperiores atque beatae corporis
+                    eius, eos eum ex illum ipsam ipsum itaque, molestias nisi quasi reiciendis sit suscipit temporibus
+                    vero?
+                </p>
+                <div class="theme-select">
+                    <button class="theme-select__button">Light</button>
+                    <button class="theme-select__button">Dark</button>
+                    <button class="theme-select__button">Darkest</button>
+                </div>
+            </section>
 
+            <section class="settings__section">
+                <h2 class="settings__subtitle">
+                    <span class="fas fa-chevron-right fa-fw settings__section-icon"></span>
+                    Data import &amp; export
+                </h2>
+                <p class="settings__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi asperiores atque beatae corporis
+                    eius, eos eum ex illum ipsam ipsum itaque, molestias nisi quasi reiciendis sit suscipit temporibus
+                    vero?
+                </p>
+                <button class="settings__button">
+                    <span class="fas fa-file-import fa-fw"></span>
+                    Import data from file
+                </button>
+                <p class="settings__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi asperiores atque beatae corporis
+                    eius, eos eum ex illum ipsam ipsum itaque, molestias nisi quasi reiciendis sit suscipit temporibus
+                    vero?
+                </p>
+                <button class="settings__button">
+                    <span class="fas fa-file-export fa-fw"></span>
+                    Export data to file
+                </button>
+            </section>
+        </div>
+        <div class="settings__divider"></div>
+        <div class="settings__column">
+            <h1 class="settings__title">
+                <span class="fas fa-info fa-fw"></span>
+                {% trans %}application.info.title{% endtrans %}
+            </h1>
+            {% include 'admin/component/_about-an-app.html.twig' %}
+        </div>
     </div>
     <a class="window__settings" href="{{ url('app_index') }}">
         <span class="fas fa-chevron-left fa-fw"></span>

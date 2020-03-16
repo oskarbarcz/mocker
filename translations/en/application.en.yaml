@@ -22,3 +22,5 @@ application:
       proceed: 'Remove'
   settings:
     title: 'Settings'
+  info:
+    title: 'General informations'
