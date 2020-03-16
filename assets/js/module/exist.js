@@ -1,5 +1,5 @@
 function exist (value) {
-  return value !== undefined && this.selected !== null;
+  return value !== undefined && value !== null;
 }
 
 export { exist };

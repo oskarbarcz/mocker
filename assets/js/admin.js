@@ -7,7 +7,7 @@ import { exist } from './module/exist';
 import ThemeSwitcher from './module/ThemeSwitcher';
 
 // JSON syntax highlighting
-const details = document.querySelector('.dialog');
+const details = document.querySelector('.details');
 if (exist(details)) {
   if (details.getAttribute('data-hasCode')) {
     // make JSON pretty with internal tools
