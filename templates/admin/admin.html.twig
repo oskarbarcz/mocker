@@ -24,10 +24,16 @@
     {% trans_default_domain 'application' %}
     {% include 'admin/component/_sidebar.html.twig' %}
     {% include 'admin/component/_details.html.twig' %}
-    <a class="window__settings" href="{{ url('app_settings') }}">
-        <span class="fas fa-cog"></span>
-        {% trans %}application.window.screenSwitch.launchSettings{% endtrans %}
-    </a>
+    <div class="topbar">
+        <h1 class="topbar__title">
+            Mocker
+            <span class="topbar__version">v1.0.0--alpha</span>
+        </h1>
+        <a class="topbar__switch" href="{{ url('app_settings') }}">
+            <span class="fas fa-cog"></span>
+            {% trans %}application.window.screenSwitch.launchSettings{% endtrans %}
+        </a>
+    </div>
 {% endblock %}
 
 {% block dialogBox %}
