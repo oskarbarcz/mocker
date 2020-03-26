@@ -12,7 +12,19 @@
     {% include 'form/_widget.html.twig' with {'field': form.content} only %}
 
     <div class="form__bottomline">
-        <button class="form__save" type="submit">
+        {% if current is not null %}
+            <a class="form__button form__button--danger" href="{{ url('app_index', {'slug': current.slug}) }}">
+                <span class="fas fa-chevron-circle-left"></span>
+                {% trans %}forms.fields.back{% endtrans %}
+            </a>
+        {% else %}
+            <a class="form__button form__button--danger" href="{{ url('app_index') }}">
+                <span class="fas fa-chevron-circle-left"></span>
+                {% trans %}forms.fields.back{% endtrans %}
+            </a>
+        {% endif %}
+
+        <button class="form__button" type="submit">
             <span class="fas fa-save"></span>
             {% trans %}forms.fields.save{% endtrans %}
         </button>
