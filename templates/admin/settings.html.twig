@@ -1,9 +1,17 @@
 {% extends 'window.html.twig' %}
+{% trans_default_domain 'application' %}
 
 {% block title %}App settings | Mocker{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block top_button %}
+    <a class="topbar__switch" href="{{ url('app_index') }}">
+        <span class="fas fa-chevron-left fa-fw"></span>
+        {% trans %}application.window.screenSwitch.backToApp{% endtrans %}
+    </a>
 {% endblock %}
 
 {% block window %}
@@ -71,10 +79,6 @@
             {% include 'admin/component/_about-an-app.html.twig' %}
         </div>
     </div>
-    <a class="window__settings" href="{{ url('app_index') }}">
-        <span class="fas fa-chevron-left fa-fw"></span>
-        {% trans %}application.window.screenSwitch.backToApp{% endtrans %}
-    </a>
 {% endblock %}
 
 {% block javascripts %}

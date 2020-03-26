@@ -3,6 +3,14 @@
 {% block body %}
     <div class="container">
         <main class="window">
+            <div class="topbar">
+                <h1 class="topbar__title">
+                    Mocker
+                    <span class="topbar__version">v1.0.0--alpha</span>
+                </h1>
+                {% block top_button %}
+                {% endblock %}
+            </div>
             {% block window %}{% endblock %}
         </main>
     </div>
