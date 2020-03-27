@@ -26,12 +26,14 @@ class Resource
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=50)
+     * @ORM\Column(type="string", length=50)
      */
     private ?string $name = null;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Length(min=1, max=80)
+     * @ORM\Column(type="string", length=80, unique=true)
      */
     private ?string $slug = null;
 
