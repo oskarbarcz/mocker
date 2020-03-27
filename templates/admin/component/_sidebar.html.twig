@@ -1,20 +1,25 @@
 {% trans_default_domain 'application' %}
 <nav class="sidebar">
-    <h1 class="sidebar__title">
-        <span class="fas fa-code fa-fw"></span>
-        {% trans %}application.sidebar.title{% endtrans %}
-    </h1>
+    <div class="sidebar__top">
+        <h1 class="sidebar__title">
+            <span class="fas fa-code fa-fw"></span>
+            {% trans %}application.sidebar.title{% endtrans %}
+        </h1>
+        <a class="sidebar__new-resource" href="{{ url('app_add-resource') }}">
+            <span title="{{ 'application.sidebar.addNewResource'|trans }}" class="fas fa-plus fa-fw"></span>
+        </a>
+    </div>
     <ul class="sidebar__list">
         {% for resource in resources %}
             {% if current is not null and resource.slug == current.slug %}
                 <li class="sidebar__element element element--selected">
-                    <a href="{{ url('app_index', {'slug': resource.slug}) }}" class="element__link">
+                    <span class="element__link">
                         <span class="element__title">{{ resource.name }}</span>
                         <span class="element__slug">
                             <span class="fas fa-globe fa-fw element__url-icon"></span>
                             /api/{{ resource.slug }}
                         </span>
-                    </a>
+                    </span>
                 </li>
             {% else %}
                 <li class="sidebar__element element">
@@ -29,7 +34,4 @@
             {% endif %}
         {% endfor %}
     </ul>
-    <a class="sidebar__new-resource" href="{{ url('app_add-resource') }}">
-        <span title="{{ 'application.sidebar.addNewResource'|trans }}" class="fas fa-plus fa-fw"></span>
-    </a>
 </nav>
