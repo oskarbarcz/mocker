@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\Entity\Config;
 use App\Repository\ConfigRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -19,9 +18,5 @@ class ConfigurationManager
 
     public function initConfigOnEmpty()
     {
-        // check if config does not exist
-        $config = new Config();
-        $this->entityManager->persist($config);
-        $this->entityManager->flush();
     }
 }
