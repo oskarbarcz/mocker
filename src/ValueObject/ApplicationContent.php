@@ -2,7 +2,7 @@
 
 namespace App\ValueObject;
 
-use App\Entity\ConfigEntry;
+use App\Entity\Configuration;
 use DateTime;
 
 /**
@@ -10,7 +10,7 @@ use DateTime;
  */
 class ApplicationContent
 {
-    private ?ConfigEntry $config = null;
+    private ?Configuration $config = null;
     private array $resources = [];
     private string $version = '1.0.0';
     private DateTime $createdAt;
@@ -20,12 +20,12 @@ class ApplicationContent
         $this->createdAt = new DateTime();
     }
 
-    public function getConfig(): ConfigEntry
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
 
-    public function setConfig(ConfigEntry $config): ApplicationContent
+    public function setConfig(Configuration $config): ApplicationContent
     {
         $this->config = $config;
         return $this;
