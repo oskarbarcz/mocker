@@ -23,11 +23,23 @@ class ConfigurationManager
     /**
      * Retrieves current configuration
      *
+     * This function will also create new when needed, or purge current if data failure is detected
+     *
      * @return Configuration
      */
     public function get(): Configuration
     {
-        // there can be only one element if this kind
+        $configuration = $this->repository->findAll();
+
+        if (count($configuration) < 1) {
+            return $this->setDefaultConfig();
+        }
+
+        if (count($configuration) > 1) {
+            $this->purgeCurrentSettings();
+            return $this->setDefaultConfig();
+        }
+
         return $this->repository->findAll()[0];
     }
 
@@ -41,6 +53,15 @@ class ConfigurationManager
         $this->purgeCurrentSettings();
         $this->entityManager->persist($configuration);
         $this->entityManager->flush();
+    }
+
+    private function setDefaultConfig(): Configuration
+    {
+        $configuration = new Configuration();
+        $this->entityManager->persist($configuration);
+        $this->entityManager->flush();
+
+        return $configuration;
     }
 
     /**
