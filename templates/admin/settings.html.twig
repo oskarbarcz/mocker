@@ -33,15 +33,12 @@
                     vero?
                 </p>
                 <div class="theme-select">
-                    <button data-theme="light" class="theme-select__button theme-select__button--active">
-                        Light
-                    </button>
-                    <button data-theme="dark" class="theme-select__button">
-                        Dark
-                    </button>
-                    <button data-theme="darkest" class="theme-select__button">
-                        Darkest
-                    </button>
+                    {% for current in ['light', 'dark', 'darkest'] %}
+                        {% set className = current == config.get.theme ?' theme-select__button--active': null %}
+                        <button data-theme="{{ current }}" class="theme-select__button{{ className }}">
+                            {{ current|capitalize }}
+                        </button>
+                    {% endfor %}
                 </div>
             </section>
 
