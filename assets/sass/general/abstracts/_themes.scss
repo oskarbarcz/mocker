@@ -1,0 +1,14 @@
+$text-font-stack: 'Roboto', sans-serif;
+
+$themes: (
+  "light": (
+    "foreground": #FFFFFF,
+    "background": #F8F9FA,
+    "contrast": #075fba,
+    "contrast_action": darken(#075fba, 10),
+    "danger": #cc3331,
+    "danger_action": darken(#cc3331, 10),
+    "text_light": #4e4d4d,
+    "text": #292929
+  )
+)
