@@ -7,13 +7,15 @@
     font-size: 1.2em
     margin: 5px 0 10px
     span.fas
-      color: #075fba
+      @include themify($themes)
+        color: $color-contrast
   &__subtitle
     font-weight: 500
     font-size: 1.1em
     margin: 15px 0 10px
     span.fas
-      color: #075fba
+      @include themify($themes)
+        color: $color-contrast
   &__column
     padding: 15px
     width: 50%
@@ -27,7 +29,6 @@
     margin: 2px 0 5px
   &__button
     @include shadow(1)
-    background: #075fba
     border-radius: 5px
     margin: 10px auto
     text-transform: uppercase
@@ -41,5 +42,8 @@
     transition: 0.1s ease-in-out all
     border: 0
     cursor: pointer
+    @include themify($themes)
+      background: $color-contrast
     &:hover, &:focus
-      background: darken(#075fba, 10)
+      @include themify($themes)
+        background: $color-contrast_action
