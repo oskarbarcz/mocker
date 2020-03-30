@@ -25,7 +25,6 @@
       background: $color-contrast
       color: $color-foreground
   &__switch
-    background: #F8F9FA
     display: flex
     align-items: center
     font-size: 0.8em
@@ -33,11 +32,14 @@
     text-decoration: none
     padding: 5px 10px
     margin: 5px 0
-    color: #292929
     transition: 0.1s ease-in-out
+    @include themify($themes)
+      background: $color-background
+      color: $color-text
     &:hover, &:focus
-      background: white
       @include shadow(1)
+      @include themify($themes)
+        background: $color-foreground
     .fas
       padding-right: 5px
       font-size: 0.9em
