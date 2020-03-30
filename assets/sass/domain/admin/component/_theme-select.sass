@@ -9,15 +9,18 @@
     padding: 7.5px 15px
     font-weight: 500
     text-transform: uppercase
-    background: darken(white, 5)
     font-size: 0.75em
     transition: 0.1s ease-in-out all
     cursor: pointer
     font-family: $text-font-stack
     border: 0
     outline: none
+    @include themify($themes)
+      color: $color-text
+      background: darken($color-foreground, 5)
     &:hover, &:focus
-      background: darken(white, 15)
+      @include themify($themes)
+        background: darken($color-foreground, 15)
     &:first-of-type
       border-bottom-left-radius: 5px
       border-top-left-radius: 5px
@@ -25,7 +28,9 @@
       border-top-right-radius: 5px
       border-bottom-right-radius: 5px
     &--active, &--active:active
-      background: #075fba
-      color: white
+      @include themify($themes)
+        background: $color-contrast
+        color: $color-foreground
       &:hover, &:focus
-        background: darken(#075fba, 10)
+        @include themify($themes)
+          background: $color-contrast_action
