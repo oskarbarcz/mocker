@@ -14,8 +14,6 @@
     letter-spacing: -2px
     display: inline-block
   &__version
-    color: $color-white
-    background: #075fba
     font-size: 0.25em
     padding: 3px 5px
     display: inline-block
@@ -23,6 +21,9 @@
     margin: 0 5px
     border-radius: 50vh
     font-weight: 400
+    @include themify($themes)
+      background: $color-contrast
+      color: $color-foreground
   &__switch
     background: #F8F9FA
     display: flex

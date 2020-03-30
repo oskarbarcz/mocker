@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Mocker{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
 </head>
-<body>
+<body class="theme-light">
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>
