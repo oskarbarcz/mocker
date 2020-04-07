@@ -5,7 +5,8 @@
     font-weight: 500
     margin: 15px
     span.fas
-      color: #075fba
+      @include themify($themes)
+        color: $color-contrast
   &__bottomline
     width: 100%
     display: flex
@@ -16,7 +17,6 @@
     font-family: $text-font-stack
     @include shadow(1)
     border: 0
-    background: #075fba
     border-radius: 5px
     margin: 0 5px
     text-transform: uppercase
@@ -24,13 +24,18 @@
     display: block
     text-decoration: none
     padding: 8px 16px
-    color: white
     transition: 0.1s ease-in-out all
     font-weight: 500
+    color: white
+    @include themify($themes)
+      background: $color-contrast
     &:hover, &:focus
       cursor: pointer
-      background: darken(#075fba, 10)
+      @include themify($themes)
+        background: $color-contrast_action
     &--danger
-      background: #cc3331
+      @include themify($themes)
+        background: $color-danger
       &:hover, &:focus
-        background: darken(#cc3331, 10)
+        @include themify($themes)
+          background: $color-danger_action

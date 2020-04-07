@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Mocker{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        {% if config.get.theme == 'light' %}
+            <link rel="stylesheet"
+                  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow.min.css">
+        {% elseif config.get.theme == 'dark' %}
+            <link rel="stylesheet"
+                  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow-night.min.css">
+        {% elseif config.get.theme == 'darkest' %}
+            <link rel="stylesheet"
+                  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow-night-bright.min.css">
+        {% endif %}
+    {% endblock %}
 </head>
-<body>
+<body class="theme-{{ config.get.theme }}" data-theme="{{ config.get.theme }}">
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>

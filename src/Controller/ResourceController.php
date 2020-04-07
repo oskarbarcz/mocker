@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminController extends AbstractController
+class ResourceController extends AbstractController
 {
     private ResourceManager $resourceManager;
 
@@ -113,13 +113,5 @@ class AdminController extends AbstractController
 
         $this->resourceManager->delete($resource);
         return $this->redirectToRoute('app_index');
-    }
-
-    /**
-     * @Route("admin/settings", name="app_settings")
-     */
-    public function settings(): Response
-    {
-        return $this->render('admin/settings.html.twig');
     }
 }

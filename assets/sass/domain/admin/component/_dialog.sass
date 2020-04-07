@@ -14,9 +14,10 @@
     left: 0
     right: 0
     top: 0
-    background: white
     opacity: 0.7
     z-index: 10
+    @include themify($themes)
+      background: $color-foreground
   &__foreground
     position: absolute
     width: 100%
@@ -29,12 +30,14 @@
     justify-content: center
     align-items: center
   &__window
-    background: white
     width: 450px
-    @include shadow(2)
     padding: 15px
+    @include shadow(2)
+    @include themify($themes)
+      background: $color-foreground
   &__icon
-    color: #cc3331
+    @include themify($themes)
+      color: $color-danger
   &__title
     font-weight: 500
     font-size: 1.1em
@@ -57,16 +60,22 @@
     text-decoration: none
     padding: 7.5px 15px
     font-weight: 500
-    color: white
     transition: 0.1s ease-in-out all
     border: 0
     cursor: pointer
+    color: white
+    @include themify($themes)
+      background: $color-foreground
   &__return
-    background: #075fba
+    @include themify($themes)
+      background: $color-contrast
     &:hover, &:focus
-      background: darken(#075fba, 10)
+      @include themify($themes)
+        background: $color-contrast_action
   &__proceed
-    background: #C82829
+    @include themify($themes)
+      background: $color-danger
     &:hover, &:focus
-      background: darken(#C82829, 10)
+      @include themify($themes)
+        background: $color-danger_action
 

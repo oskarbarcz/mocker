@@ -8,31 +8,37 @@
     font-size: 1em
     margin: 10px 0 -4px
   &__error li
-    color: #C82829
     font-size: 0.8em
     display: block
+    @include themify($themes)
+      background: $color-danger
     &::before
       display: inline-block
       content: 'Error'
       text-transform: uppercase
       font-size: 0.6em
       font-weight: bold
-      color: white
-      background: #C82829
       padding: 3px
       border-radius: 3px
       margin: 0 5px 0 0
       transform: translateY(-2px)
+      @include themify($themes)
+        color: $color-foreground
+        background: $color-danger
   &__widget input, &__widget select, &__widget textarea
     margin: 5px 0 0
     border-radius: 3px
     width: 100%
     padding: 5px 8px
     font-size: 1em
-    border: #888888 solid 2px
     outline: none
+    @include themify($themes)
+      border: $color-text solid 2px
+      background: $color-foreground
+      color: $color-text
     &:focus
-      border-color: lighten(#075fba, 5)
+      @include themify($themes)
+        border-color: $color-contrast
   &__widget textarea
     resize: vertical
     min-height: 36px

@@ -1,7 +1,8 @@
 .sidebar
   min-width: 250px
   min-height: 100%
-  border-right: 1px solid darken(white, 15)
+  @include themify($themes)
+    border-right: 1px solid $color-dividing
   &__top
     display: flex
     justify-content: space-between
@@ -11,7 +12,8 @@
     font-weight: 600
     font-size: 1.2em
     span.fas
-      color: #075fba
+      @include themify($themes)
+        color: $color-contrast
   &__new-resource
     width: 30px
     border-radius: 50%
@@ -23,10 +25,12 @@
     display: flex
     align-items: center
     justify-content: center
-    background: #075fba
     color: white
+    @include themify($themes)
+      background: $color-contrast
     &:hover, &:focus
-      background: darken(#075fba, 10)
+      @include themify($themes)
+        background: $color-contrast_action
   &__list
     display: flex
     flex-direction: column

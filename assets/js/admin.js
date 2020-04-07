@@ -1,25 +1,13 @@
-import hljs from 'highlight.js/lib/highlight';
-import json from 'highlight.js/lib/languages/json';
-import 'highlight.js/styles/atom-one-light.css';
 import '../sass/domain/admin/index.sass';
 import DialogBox from './module/DialogBox';
 import { exist } from './module/exist';
-import ThemeSwitcher from './module/ThemeSwitcher';
+import Highlighter from './module/Highlighter';
 
 // JSON syntax highlighting
 const details = document.querySelector('.details');
 
 if (exist(details)) {
-  if (details.getAttribute('data-hasCode')) {
-    // make JSON pretty with internal tools
-    const code = document.querySelector('code.json');
-    const parsed = JSON.parse(code.innerText);
-    code.innerText = JSON.stringify(parsed, null, 2);
-
-    // init highlighter
-    hljs.registerLanguage('javascript', json);
-    hljs.initHighlightingOnLoad();
-  }
+  new Highlighter();
 }
 
 // Dialog box behavior
@@ -35,23 +23,3 @@ if (exist(dialogBox)) {
 
   box.init();
 }
-
-// Theme switcher behavior
-const switcher = document.querySelector('.theme-select');
-
-if (exist(switcher)) {
-  const themeSwitcher = new ThemeSwitcher({
-    box: switcher,
-    activeClass: 'theme-select__button--active',
-    themeProperty: 'data-theme',
-    buttons: [
-      document.querySelector('[data-theme=light]'),
-      document.querySelector('[data-theme=dark]'),
-      document.querySelector('[data-theme=darkest]')
-    ]
-  });
-
-  themeSwitcher.init();
-}
-
-
