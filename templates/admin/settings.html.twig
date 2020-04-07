@@ -34,10 +34,16 @@
                 </p>
                 <div class="theme-select">
                     {% for current in ['light', 'dark', 'darkest'] %}
-                        {% set className = current == config.get.theme ?' theme-select__button--active': null %}
-                        <button data-theme="{{ current }}" class="theme-select__button{{ className }}">
-                            {{ current|capitalize }}
-                        </button>
+                        {% if current == config.get.theme %}
+                            <span data-theme="{{ current }}" class="theme-select__button theme-select__button--active">
+                                {{ current|capitalize }}
+                            </span>
+                        {% else %}
+                            <a href="{{ url('app_settings_theme-change', {'themeName': current}) }}"
+                               data-theme="{{ current }}" class="theme-select__button">
+                                {{ current|capitalize }}
+                            </a>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </section>

@@ -4,12 +4,17 @@
   border-radius: 5px
   width: 70%
   margin: 10px auto
+  @include themify($themes)
+    background: darken($color-foreground, 5)
   &__button
     width: calc(100% / 3)
+    border-radius: 5px
     padding: 7.5px 15px
     font-weight: 500
+    text-decoration: none
     text-transform: uppercase
     font-size: 0.75em
+    text-align: center
     transition: 0.1s ease-in-out all
     cursor: pointer
     font-family: $text-font-stack
@@ -21,16 +26,10 @@
     &:hover, &:focus
       @include themify($themes)
         background: darken($color-foreground, 15)
-    &:first-of-type
-      border-bottom-left-radius: 5px
-      border-top-left-radius: 5px
-    &:last-of-type
-      border-top-right-radius: 5px
-      border-bottom-right-radius: 5px
-    &--active, &--active:active
+    &--active
       @include themify($themes)
         background: $color-contrast
-        color: $color-foreground
+        color: white
       &:hover, &:focus
         @include themify($themes)
           background: $color-contrast_action

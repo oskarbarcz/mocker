@@ -26,7 +26,7 @@ class SettingsController extends AbstractController
     }
 
     /**
-     * @Route("admin/settings/set-theme/{themeName}")
+     * @Route("admin/settings/set-theme/{themeName}", name="app_settings_theme-change")
      * @param string $themeName
      * @return Response
      */
@@ -36,6 +36,6 @@ class SettingsController extends AbstractController
         $configuration->setTheme($themeName);
 
         $this->configurationManager->set($configuration);
-        return new Response(null, Response::HTTP_NO_CONTENT);
+        return $this->redirectToRoute('app_settings');
     }
 }

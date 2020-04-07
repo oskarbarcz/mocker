@@ -4,7 +4,6 @@ import 'highlight.js/styles/atom-one-light.css';
 import '../sass/domain/admin/index.sass';
 import DialogBox from './module/DialogBox';
 import { exist } from './module/exist';
-import ThemeSwitcher from './module/ThemeSwitcher';
 
 // JSON syntax highlighting
 const details = document.querySelector('.details');
@@ -35,23 +34,3 @@ if (exist(dialogBox)) {
 
   box.init();
 }
-
-// Theme switcher behavior
-const switcher = document.querySelector('.theme-select');
-
-if (exist(switcher)) {
-  const themeSwitcher = new ThemeSwitcher({
-    box: switcher,
-    activeClass: 'theme-select__button--active',
-    themeProperty: 'data-theme',
-    buttons: [
-      document.querySelector('[data-theme=light]'),
-      document.querySelector('[data-theme=dark]'),
-      document.querySelector('[data-theme=darkest]')
-    ]
-  });
-
-  themeSwitcher.init();
-}
-
-
