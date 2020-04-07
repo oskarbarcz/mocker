@@ -1,5 +1,9 @@
 <div class="about">
-    <img class="about__logo" src="{{ asset('build/image/architektur-logo.svg') }}" alt="Creator logo">
+    {% if config.get.theme== "light" %}
+        <img class="about__logo" src="{{ asset('build/image/architektur-logo-dark.svg') }}" alt="Creator logo">
+    {% else %}
+        <img class="about__logo" src="{{ asset('build/image/architektur-logo-light.svg') }}" alt="Creator logo">
+    {% endif %}
     <table class="about__data">
         <tr class="about__row">
             <td class="about__column about__column--title">Version</td>
