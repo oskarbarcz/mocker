@@ -1,3 +1,4 @@
+import ClipboardJS from 'clipboard/dist/clipboard.min';
 import '../sass/domain/admin/index.sass';
 import DialogBox from './module/DialogBox';
 import { exist } from './module/exist';
@@ -22,4 +23,9 @@ if (exist(dialogBox)) {
   });
 
   box.init();
+}
+
+// copy to clipboard
+if (exist(details)) {
+  new ClipboardJS('.details__copy-icon');
 }

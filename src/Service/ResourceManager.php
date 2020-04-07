@@ -47,11 +47,14 @@ class ResourceManager
      * Creates or updates a resource
      *
      * @param Resource $resource
+     * @return Resource
      */
-    public function persist(Resource $resource): void
+    public function persist(Resource $resource): Resource
     {
         $this->entityManager->persist($resource);
         $this->entityManager->flush();
+
+        return $resource;
     }
 
     /**

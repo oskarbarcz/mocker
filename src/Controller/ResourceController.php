@@ -62,9 +62,9 @@ class ResourceController extends AbstractController
                 ]
             );
         }
-        $this->resourceManager->persist($form->getData());
+        $resource = $this->resourceManager->persist($form->getData());
 
-        return $this->redirectToRoute('app_index');
+        return $this->redirectToRoute('app_index', ['slug' => $resource->getSlug()]);
     }
 
     /**
@@ -97,7 +97,7 @@ class ResourceController extends AbstractController
         }
         $this->resourceManager->persist($resource);
 
-        return $this->redirectToRoute('app_index');
+        return $this->redirectToRoute('app_index', ['slug' => $resource->getSlug()]);
     }
 
     /**
