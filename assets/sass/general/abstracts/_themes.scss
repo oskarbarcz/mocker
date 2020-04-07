@@ -26,5 +26,18 @@ $themes: (
     "text_light": lighten(#4e4d4d, 25),
     "text": #FFFFFF,
     "dividing": lighten(#292929, 15)
+  ),
+  "darkest": (
+    "foreground": #222222,
+    "foreground_action": lighten(#292929, 5),
+    "background": #000000,
+    "background_action": lighten(#111111, 10),
+    "contrast": lighten(#075fba, 10),
+    "contrast_action": #075fba,
+    "danger": #cc3331,
+    "danger_action": darken(#cc3331, 10),
+    "text_light": #FFFFFF,
+    "text": #FFFFFF,
+    "dividing": lighten(#292929, 15)
   )
 )
