@@ -3,16 +3,20 @@
   padding: 7px 10px
   transition: 0.1s ease-in-out
   &:hover, &:focus
-    background: darken(white, 15)
+    @include themify($themes)
+      background: $color-background_action
   &--selected
-    background: darken(white, 10)
+    @include themify($themes)
+      background: $color-foreground_action
     &:hover, &:focus
-      background: darken(white, 10)
+      @include themify($themes)
+        background: $color-foreground_action
     .element__link
       cursor: not-allowed
   &__link
-    color: #292929
     text-decoration: none
+    @include themify($themes)
+      color: $color-text
   &__title
     font-weight: 500
     font-size: 0.9em
@@ -22,7 +26,8 @@
     align-items: center
     font-size: 0.7em
     font-weight: 300
-    color: #444444
+    @include themify($themes)
+      color: $color-text_light
   &__url-icon
     font-size: 0.8em
     margin-right: 2px

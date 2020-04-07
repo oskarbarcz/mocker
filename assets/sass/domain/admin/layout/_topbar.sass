@@ -8,11 +8,12 @@
   width: 100%
   &__title
     font-weight: 600
-    color: #4e4d4d
     font-size: 2.2em
     margin: 2px 0
     letter-spacing: -2px
     display: inline-block
+    @include themify($themes)
+      color: $color-text_light
   &__version
     font-size: 0.25em
     padding: 3px 5px
@@ -23,7 +24,7 @@
     font-weight: 400
     @include themify($themes)
       background: $color-contrast
-      color: $color-foreground
+      color: white
   &__switch
     display: flex
     align-items: center

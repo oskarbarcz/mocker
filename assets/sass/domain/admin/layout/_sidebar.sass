@@ -1,7 +1,8 @@
 .sidebar
   min-width: 250px
   min-height: 100%
-  border-right: 1px solid #d9d9d9
+  @include themify($themes)
+    border-right: 1px solid $color-dividing
   &__top
     display: flex
     justify-content: space-between
@@ -24,9 +25,9 @@
     display: flex
     align-items: center
     justify-content: center
+    color: white
     @include themify($themes)
       background: $color-contrast
-      color: $color-foreground
     &:hover, &:focus
       @include themify($themes)
         background: $color-contrast_action
