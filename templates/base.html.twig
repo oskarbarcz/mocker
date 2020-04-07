@@ -5,7 +5,7 @@
     <title>{% block title %}Mocker{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
 </head>
-<body class="theme-light">
+<body class="theme-{{ config.get.theme }}">
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>
