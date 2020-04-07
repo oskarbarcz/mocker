@@ -97,7 +97,7 @@ class ResourceController extends AbstractController
         }
         $this->resourceManager->persist($resource);
 
-        return $this->redirectToRoute('app_index');
+        return $this->redirectToRoute('app_index', ['slug' => $resource->getSlug()]);
     }
 
     /**
