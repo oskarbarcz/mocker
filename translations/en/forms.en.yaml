@@ -1,16 +1,16 @@
 forms:
   fields:
     name:
-      label: "Nazwa zasobu"
+      label: "Resource name"
       help: ""
     slug:
-      label: "Identyfikator URI"
-      help: "Identyfikator może zawierać tylko litery, liczby i znaki '_', '-'. Identyfikator ten musi być unikalny."
+      label: "URI identifier (slug)"
+      help: "Identifier can cantain only letters, numbers and signs '_', '-'. Identifier entered here must be unique."
     description:
-      label: "Opis zasobu"
-      help: "Opis ułatwi wyszukanie zasobu w momencie gdy będzie ich dużo."
+      label: "Resource description"
+      help: "Resource description will easify further resource searching."
     content:
-      label: "Zawartość API"
-      help: "Zawartość endpointu (JSON)"
-    back: "Wróć"
-    save: "Zapisz"
+      label: "Endpoint content"
+      help: "Value entered here must be valid JSON."
+    back: "Back"
+    save: "Save"

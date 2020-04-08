@@ -1,7 +1,7 @@
 {% extends 'window.html.twig' %}
-{% trans_default_domain 'application' %}
+{% trans_default_domain 'settings' %}
 
-{% block title %}App settings | Mocker{% endblock %}
+{% block title %}{{ 'settings.page-title'|trans }} | Mocker{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -11,38 +11,36 @@
 {% block top_button %}
     <a class="topbar__switch" href="{{ url('app_index') }}">
         <span class="fas fa-chevron-left fa-fw"></span>
-        {% trans %}application.window.screenSwitch.backToApp{% endtrans %}
+        {{ 'application.window.screenSwitch.backToApp'|trans({}, 'application') }}
     </a>
 {% endblock %}
 
 {% block window %}
-    {% trans_default_domain 'application' %}
+    {% trans_default_domain 'settings' %}
     <div class="settings">
         <div class="settings__column">
             <h1 class="settings__title">
                 <span class="fas fa-cog fa-fw"></span>
-                {% trans %}application.settings.title{% endtrans %}
+                {% trans %}settings.title{% endtrans %}
             </h1>
             <section class="settings__section">
                 <h2 class="settings__subtitle">
                     <span class="fas fa-chevron-right fa-fw settings__section-icon"></span>
-                    Appearance
+                    {{ 'settings.categories.appearance.title'|trans }}
                 </h2>
                 <p class="settings__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi asperiores atque beatae corporis
-                    eius, eos eum ex illum ipsam ipsum itaque, molestias nisi quasi reiciendis sit suscipit temporibus
-                    vero?
+                    {{ 'settings.categories.appearance.description'|trans }}
                 </p>
                 <div class="theme-select">
                     {% for current in ['light', 'dark', 'darkest'] %}
                         {% if current == config.get.theme %}
                             <span data-theme="{{ current }}" class="theme-select__button theme-select__button--active">
-                                {{ current|capitalize }}
+                                {{ ('settings.categories.appearance.options.'~current)|trans|capitalize }}
                             </span>
                         {% else %}
                             <a href="{{ url('app_settings_theme-change', {'themeName': current}) }}"
                                data-theme="{{ current }}" class="theme-select__button">
-                                {{ current|capitalize }}
+                                {{ ('settings.categories.appearance.options.'~current)|trans|capitalize }}
                             </a>
                         {% endif %}
                     {% endfor %}
@@ -52,25 +50,21 @@
             <section class="settings__section">
                 <h2 class="settings__subtitle">
                     <span class="fas fa-chevron-right fa-fw settings__section-icon"></span>
-                    Data import &amp; export
+                    {{ 'settings.categories.data-import.title'|trans }}
                 </h2>
                 <p class="settings__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi asperiores atque beatae corporis
-                    eius, eos eum ex illum ipsam ipsum itaque, molestias nisi quasi reiciendis sit suscipit temporibus
-                    vero?
+                    {{ 'settings.categories.data-import.description-import'|trans }}
                 </p>
                 <button class="settings__button">
                     <span class="fas fa-file-import fa-fw"></span>
-                    Import data from file
+                    {{ 'settings.categories.data-import.button-import'|trans }}
                 </button>
                 <p class="settings__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi asperiores atque beatae corporis
-                    eius, eos eum ex illum ipsam ipsum itaque, molestias nisi quasi reiciendis sit suscipit temporibus
-                    vero?
+                    {{ 'settings.categories.data-import.description-export'|trans }}
                 </p>
                 <button class="settings__button">
                     <span class="fas fa-file-export fa-fw"></span>
-                    Export data to file
+                    {{ 'settings.categories.data-import.button-export'|trans }}
                 </button>
             </section>
         </div>
@@ -78,7 +72,7 @@
         <div class="settings__column">
             <h1 class="settings__title">
                 <span class="fas fa-info fa-fw"></span>
-                {% trans %}application.info.title{% endtrans %}
+                {{ 'settings.categories.general-informations.title'|trans }}
             </h1>
             {% include 'admin/component/_about-an-app.html.twig' %}
         </div>

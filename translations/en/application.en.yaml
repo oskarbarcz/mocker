@@ -20,7 +20,3 @@ application:
       content: 'You are going to delete resource. This action cannot be undone. Are you sure to proceed?'
       cancel: 'Back'
       proceed: 'Remove'
-  settings:
-    title: 'Settings'
-  info:
-    title: 'General informations'

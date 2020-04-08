@@ -10,7 +10,7 @@ forms:
       label: "Opis zasobu"
       help: "Opis ułatwi wyszukanie zasobu w momencie gdy będzie ich dużo."
     content:
-      label: "Zawartość API"
-      help: "Zawartość endpointu (JSON)"
+      label: "Zawartość enpointu"
+      help: "Zawartość endpointu (JSON)."
     back: "Wróć"
     save: "Zapisz"

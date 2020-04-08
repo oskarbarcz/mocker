@@ -1,0 +1,40 @@
+settings:
+  title: 'Settings'
+  page-title: 'App settings'
+  categories:
+    appearance:
+      title: 'Appearance'
+      description: >
+        Take care for your eyes and change theme. Use light one for better contrast and desing, use dark if you're
+        working during night. Darkest mode is high-constrast one. Accent color changing is coming soon.
+      options:
+        light: 'Light'
+        dark: 'Dark'
+        darkest: 'Darkest'
+    data-import:
+      title: 'Data import & export'
+      description-import: >
+        If you have valid saved configuration, you can import it with button below. Make sure that current changes are
+        saved somewhere, import will override ALL data.
+      button-import: 'Import data from file'
+      description-export: >
+        If you want to move current configuration to other Mocker instance, click the button below to generate
+        configuration file that can be imported easily to new instance. App provides backward compatibility when it
+        comes to config files, however you might be asked to provide missing informations.
+      button-export: 'Export data to file'
+    general-informations:
+      title: 'General informations'
+      details:
+        version:
+          title: 'App version'
+        environment:
+          title: 'Environment'
+          values:
+            dev: 'Developement'
+            test: 'Testing'
+            staging: 'Staging'
+            prod: 'Production'
+        server-address:
+          title: 'Server address'
+        your-ip:
+          title: 'Your IP address'

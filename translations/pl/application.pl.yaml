@@ -20,5 +20,3 @@ application:
       content: 'Zamierzasz usunąć zasób. Tej akcji nie można cofnąć. Czy na pewno chcesz kontynuować?'
       cancel: 'Wróć'
       proceed: 'Usuń'
-  settings:
-    title: 'Ustawienia'
