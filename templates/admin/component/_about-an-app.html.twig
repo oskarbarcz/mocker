@@ -1,6 +1,6 @@
 {% trans_default_domain 'settings' %}
 <div class="about">
-    {% if config.get.theme== "light" %}
+    {% if config.theme== "light" %}
         <img class="about__logo" src="{{ asset('build/image/architektur-logo-dark.svg') }}" alt="Creator logo">
     {% else %}
         <img class="about__logo" src="{{ asset('build/image/architektur-logo-light.svg') }}" alt="Creator logo">
@@ -10,14 +10,14 @@
             <td class="about__column about__column--title">
                 {{ 'settings.categories.general-informations.details.version.title'|trans }}
             </td>
-            <td class="about__column">{{ env.get.version }}</td>
+            <td class="about__column">{{ env.version }}</td>
         </tr>
         <tr class="about__row">
             <td class="about__column about__column--title">
                 {{ 'settings.categories.general-informations.details.environment.title'|trans }}
             </td>
             <td class="about__column">
-                {{ ('settings.categories.general-informations.details.environment.values.'~env.get.env)|trans }}
+                {{ ('settings.categories.general-informations.details.environment.values.'~env.env)|trans }}
             </td>
         </tr>
         <tr class="about__row">

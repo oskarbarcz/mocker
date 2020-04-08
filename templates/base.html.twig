@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <title>{% block title %}Mocker{% endblock %}</title>
     {% block stylesheets %}
-        {% if config.get.theme == 'light' %}
+        {% if config.theme == 'light' %}
             <link rel="stylesheet"
                   href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow.min.css">
-        {% elseif config.get.theme == 'dark' %}
+        {% elseif config.theme == 'dark' %}
             <link rel="stylesheet"
                   href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow-night.min.css">
-        {% elseif config.get.theme == 'darkest' %}
+        {% elseif config.theme == 'darkest' %}
             <link rel="stylesheet"
                   href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/tomorrow-night-bright.min.css">
         {% endif %}
     {% endblock %}
 </head>
-<body class="theme-{{ config.get.theme }}" data-theme="{{ config.get.theme }}">
+<body class="theme-{{ config.theme }}" data-theme="{{ config.theme }}">
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>

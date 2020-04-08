@@ -33,7 +33,7 @@
                 </p>
                 <div class="theme-select">
                     {% for current in ['light', 'dark', 'darkest'] %}
-                        {% if current == config.get.theme %}
+                        {% if current == config.theme %}
                             <span data-theme="{{ current }}" class="theme-select__button theme-select__button--active">
                                 {{ ('settings.categories.appearance.options.'~current)|trans|capitalize }}
                             </span>
