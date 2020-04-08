@@ -16,5 +16,5 @@ services:
       - {name: doctrine.orm.entity_listener, event: preUpdate, lazy: true}
   App\Twig\EnvironmentVarsAccess:
     arguments:
-      $env: '(env:)APP_ENV'
-      $version: '(env:)APP_VERSION'
+      $env: '%env(resolve:APP_ENV)%'
+      $version: '%env(resolve:APP_VERSION)%'
