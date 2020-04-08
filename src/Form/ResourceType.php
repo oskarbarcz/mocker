@@ -26,9 +26,10 @@ class ResourceType extends AbstractType
                 'slug',
                 TextareaType::class,
                 [
-                    'required' => false,
-                    'label'    => 'forms.fields.slug.label',
-                    'help'     => 'forms.fields.slug.help',
+                    'required'   => false,
+                    'empty_data' => '',
+                    'label'      => 'forms.fields.slug.label',
+                    'help'       => 'forms.fields.slug.help',
                 ]
             )
             ->add(
