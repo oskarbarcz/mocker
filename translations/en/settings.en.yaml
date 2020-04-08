@@ -5,7 +5,7 @@ settings:
     appearance:
       title: 'Appearance'
       description: >
-        Take care for your eyes and change theme. Use light one for better contrast and desing, use dark if you're
+        Take care for your eyes and change theme. Use light one for better visibility in daylight, use dark if you're
         working during night. Darkest mode is high-constrast one. Accent color changing is coming soon.
       options:
         light: 'Light'
