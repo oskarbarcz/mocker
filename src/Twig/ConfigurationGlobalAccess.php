@@ -5,6 +5,11 @@ namespace App\Twig;
 use App\Entity\Configuration;
 use App\Service\ConfigurationManager;
 
+/**
+ * Allows configutation to be loaded directly from template
+ *
+ * @package App\Twig
+ */
 class ConfigurationGlobalAccess
 {
     private ConfigurationManager $manager;
