@@ -1,3 +1,4 @@
+{% trans_default_domain 'settings' %}
 <div class="about">
     {% if config.get.theme== "light" %}
         <img class="about__logo" src="{{ asset('build/image/architektur-logo-dark.svg') }}" alt="Creator logo">
@@ -6,19 +7,29 @@
     {% endif %}
     <table class="about__data">
         <tr class="about__row">
-            <td class="about__column about__column--title">Version</td>
+            <td class="about__column about__column--title">
+                {{ 'settings.categories.general-informations.details.version.title'|trans }}
+            </td>
             <td class="about__column">1.0.0-dev</td>
         </tr>
         <tr class="about__row">
-            <td class="about__column about__column--title">Environment</td>
-            <td class="about__column">Development</td>
+            <td class="about__column about__column--title">
+                {{ 'settings.categories.general-informations.details.environment.title'|trans }}
+            </td>
+            <td class="about__column">
+                {{ 'settings.categories.general-informations.details.environment.values.dev'|trans }}
+            </td>
         </tr>
         <tr class="about__row">
-            <td class="about__column about__column--title">Server address</td>
+            <td class="about__column about__column--title">
+                {{ 'settings.categories.general-informations.details.server-address.title'|trans }}
+            </td>
             <td class="about__column">{{ app.request.httpHost }}</td>
         </tr>
         <tr class="about__row">
-            <td class="about__column about__column--title">Your IP</td>
+            <td class="about__column about__column--title">
+                {{ 'settings.categories.general-informations.details.your-ip.title'|trans }}
+            </td>
             <td class="about__column">{{ app.request.clientIp }}</td>
         </tr>
     </table>

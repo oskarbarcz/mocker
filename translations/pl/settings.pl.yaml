@@ -1,0 +1,41 @@
+settings:
+  title: 'Ustawienia'
+  page-title: 'Ustawienia aplikacji'
+  categories:
+    appearance:
+      title: 'Wygląd'
+      description: >
+        Pomóż swoim oczom i zmień motyw aplikacji. Używaj jasnego motywu dla lepszej widoczności w słońcu, użyj ciemnego
+        gdy pracujesz w nocy lub w ciemnym otoczneniu. Czarny motyw to motyw wysokiego kontrastu. Możliwość
+        zmiany koloru akcentu wkrótce.
+      options:
+        light: 'Jasny'
+        dark: 'Ciemny'
+        darkest: 'Czarny'
+    data-import:
+      title: 'Import i eksport danych'
+      description-import: >
+        Jeżeli posiadasz gotowy plik konfiguracyjny aplikacji - kliknij przycisk poniżej by go wczytać. Upewnij się że
+        zapisałeś obecne dane, importowanie konfiguracji usunie WSZYSTKIE poprzednie.
+      button-import: 'Importuj dane z pliku'
+      description-export: >
+        Jeżeli chcesz przenieść obecne ustawienia i dane do innej instancji Mocker'a, kliknij poniżej by wygenerować
+        gotowy plik konfiguracyjny. Aplikacja gwarantuje kompatybilność wsteczną konfiguracji, jednakże możesz być
+        proszony o uzupełnienie brakujących informacji jeżeli takie się pojawią.
+      button-export: 'Eksportuj dane do pliku'
+    general-informations:
+      title: 'Infomacje ogólne'
+      details:
+        version:
+          title: 'Wersja aplikacji'
+        environment:
+          title: 'Środowisko'
+          values:
+            dev: 'Deweloperskie'
+            test: 'Testowe'
+            staging: 'Staging'
+            prod: 'Produkcyjne'
+        server-address:
+          title: 'Adres serwera'
+        your-ip:
+          title: 'Twój adres IP'

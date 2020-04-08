@@ -33,6 +33,7 @@ class Resource
 
     /**
      * @Assert\Length(min=1, max=80)
+     * @Assert\Regex(pattern="/^[a-zA-Z0-9_-]+$/")
      * @ORM\Column(type="string", length=80, unique=true)
      */
     private ?string $slug = null;
