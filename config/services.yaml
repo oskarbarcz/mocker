@@ -1,20 +1,23 @@
 parameters:
 services:
-  _defaults:
-    autowire: true
-    autoconfigure: true
+    _defaults:
+        autowire: true
+        autoconfigure: true
 
-  App\:
-    resource: '../src/*'
-    exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
-  App\Controller\:
-    resource: '../src/Controller'
-    tags: ['controller.service_arguments']
-  App\EventListener\ResourceNameSlugger:
-    tags:
-      - {name: doctrine.orm.entity_listener, event: prePersist, lazy: true}
-      - {name: doctrine.orm.entity_listener, event: preUpdate, lazy: true}
-  App\Twig\EnvironmentVarsAccess:
-    arguments:
-      $env: '%env(resolve:APP_ENV)%'
-      $version: '%env(resolve:APP_VERSION)%'
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+    App\EventListener\ResourceNameSlugger:
+        tags:
+            - {name: doctrine.orm.entity_listener, event: prePersist, lazy: true}
+            - {name: doctrine.orm.entity_listener, event: preUpdate, lazy: true}
+    App\Twig\EnvironmentVarsAccess:
+        arguments:
+            $env: '%env(resolve:APP_ENV)%'
+            $version: '%env(resolve:APP_VERSION)%'
+    App\Service\File\Strategy\ApplicationContentStrategy:
+        arguments:
+            $filePath: '%kernel.project_dir%/var/app_files'

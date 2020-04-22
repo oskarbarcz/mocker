@@ -63,6 +63,4 @@ class ApplicationContent
         $this->createdAt = $createdAt;
         return $this;
     }
-
-
 }
