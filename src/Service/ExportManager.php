@@ -35,12 +35,6 @@ class ExportManager
      */
     public function export(): File
     {
-        $file = $this->manipulator->get();
-
-        if ($file instanceof File) {
-            return $file;
-        }
-
         $data = $this->createData(
             $this->resourceManager->getAll(),
             $this->configurationManager->get()
@@ -49,9 +43,7 @@ class ExportManager
         $serialized = $this->serializer->serialize($data, 'json');
         $this->manipulator->create($serialized);
 
-        $file = $this->manipulator->get();
-
-        return $file;
+        return $this->manipulator->get();
     }
 
     /**

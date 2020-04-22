@@ -2,33 +2,42 @@
   display: flex
   align-items: center
   width: 100%
+
   &__title
     font-weight: 600
     font-size: 1.2em
     margin: 5px 0 10px
+
     span.fas
       @include themify($themes)
         color: $color-contrast
+
   &__subtitle
     font-weight: 500
     font-size: 1.1em
     margin: 15px 0 10px
+
     span.fas
       @include themify($themes)
         color: $color-contrast
+
   &__column
     padding: 15px
     width: 50%
     height: 100%
+
   &__divider
     height: 70%
     border: 0.5px solid #CCCCCC
+
   &__content
     font-weight: 300
     font-size: 0.8em
     margin: 2px 0 5px
+
   &__button
     @include shadow(1)
+    width: 250px
     border-radius: 5px
     margin: 10px auto
     text-transform: uppercase
@@ -44,6 +53,7 @@
     color: white
     @include themify($themes)
       background: $color-contrast
+
     &:hover, &:focus
       @include themify($themes)
         background: $color-contrast_action

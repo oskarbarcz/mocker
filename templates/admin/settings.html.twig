@@ -62,10 +62,10 @@
                 <p class="settings__content">
                     {{ 'settings.categories.data-import.description-export'|trans }}
                 </p>
-                <button class="settings__button">
+                <a href="{{ url('app_settings_export-create') }}" class="settings__button">
                     <span class="fas fa-file-export fa-fw"></span>
                     {{ 'settings.categories.data-import.button-export'|trans }}
-                </button>
+                </a>
             </section>
         </div>
         <div class="settings__divider"></div>
