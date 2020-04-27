@@ -81,7 +81,7 @@
 
 {% block dialogBox %}
     {% trans_default_domain 'application' %}
-    {% include 'admin/dialog/_config-import.html.twig'  with {
+    {% include 'admin/dialog/_import_form_dialog.html.twig'  with {
         'title': {text: 'Import danych / konfiguracji', icon: 'fa-file-import'},
         'content': 'application.dialog-box.remove.content'|trans,
         'form_cancel': {text: 'application.dialog-box.remove.cancel'|trans, icon: 'fa-chevron-left'},
