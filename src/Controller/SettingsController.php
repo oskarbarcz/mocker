@@ -8,24 +8,29 @@ use App\Entity\Configuration;
 use App\Form\ImportType;
 use App\Service\ConfigurationManager;
 use App\Service\ExportManager;
+use App\Service\ImportManager;
 use App\Service\UploadManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 
-use function dd;
-
 class SettingsController extends AbstractController
 {
     private ConfigurationManager $configurationManager;
+    private ExportManager $exportManager;
+    private ImportManager $importManager;
 
-    public function __construct(ConfigurationManager $configurationManager)
-    {
+    public function __construct(
+        ConfigurationManager $configurationManager,
+        ExportManager $exportManager,
+        ImportManager $importManager
+    ) {
         $this->configurationManager = $configurationManager;
+        $this->exportManager = $exportManager;
+        $this->importManager = $importManager;
     }
 
     /**
@@ -42,11 +47,8 @@ class SettingsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $file */
             $file = $form->get('file')->getData();
-            $content = file_get_contents($file->getPathname());
-
-            dd($content);
+            $this->importManager->import($file);
         }
 
         return $this->render('admin/settings.html.twig', ['importForm' => $form->createView()]);
@@ -69,13 +71,11 @@ class SettingsController extends AbstractController
 
     /**
      * @Route("admin/export", name="app_settings_export-create")
-     * @param ExportManager $manager
-     *
      * @return Response
      */
-    public function createExport(ExportManager $manager)
+    public function createExport()
     {
-        $file = $manager->export();
+        $file = $this->exportManager->export();
 
         $response = new BinaryFileResponse($file);
         $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT);

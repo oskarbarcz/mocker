@@ -7,11 +7,11 @@ namespace App\Service;
 use App\Entity\Configuration;
 use App\Service\File\{FileManipulator, ManipulatorBuilder, Strategy\ApplicationContentStrategy};
 use App\ValueObject\ApplicationContent;
-use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
- * Class used for importing and exporting data from app
+ * Class used for exporting data from app
  */
 class ExportManager
 {
@@ -63,14 +63,5 @@ class ExportManager
             ->setResources($resources);
 
         return $data;
-    }
-
-    /**
-     * Import data from file to app
-     *
-     * @param File $file
-     */
-    public function import(File $file): void
-    {
     }
 }
