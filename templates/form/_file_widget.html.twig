@@ -5,11 +5,10 @@
         <span class="row__error">{{ form_errors(field) }}</span>
     {% endif %}
 
-    <label for="{{ field.vars.id }}"
-           class="row__file-label">
-        Upload a file
+    <label for="{{ field.vars.id }}" class="row__file-label">
+        <span class="fas fa-upload fa-fw"></span>
+        Select file
     </label>
-
     <div class="row__file-field">{{ form_widget(field) }}</div>
 
     {% if form_help(field) %}
