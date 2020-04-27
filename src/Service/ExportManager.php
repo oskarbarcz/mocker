@@ -7,8 +7,8 @@ namespace App\Service;
 use App\Entity\Configuration;
 use App\Service\File\{FileManipulator, ManipulatorBuilder, Strategy\ApplicationContentStrategy};
 use App\ValueObject\ApplicationContent;
+use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class used for exporting data from app

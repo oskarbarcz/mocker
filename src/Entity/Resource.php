@@ -8,6 +8,7 @@ use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Exception;
+use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -23,6 +24,7 @@ class Resource
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Exclude()
      */
     private ?int $id;
 
@@ -30,6 +32,7 @@ class Resource
      * @Assert\NotBlank()
      * @Assert\Length(min=3, max=50)
      * @ORM\Column(type="string", length=50)
+     * @Serializer\Type("string")
      */
     private ?string $name = null;
 
@@ -37,6 +40,7 @@ class Resource
      * @Assert\Length(min=1, max=80)
      * @Assert\Regex(pattern="/^[a-zA-Z0-9_-]+$/")
      * @ORM\Column(type="string", length=80, unique=true)
+     * @Serializer\Type("string")
      */
     private ?string $slug = null;
 
@@ -44,16 +48,19 @@ class Resource
      * @Assert\NotBlank()
      * @Assert\Json()
      * @ORM\Column(type="text", nullable=true)
+     * @Serializer\Type("string")
      */
     private ?string $content = null;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Serializer\Type("string")
      */
     private ?string $description = null;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Serializer\Type("datetime")
      */
     private ?DateTimeInterface $createdAt;
 
