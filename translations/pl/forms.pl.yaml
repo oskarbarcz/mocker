@@ -1,4 +1,6 @@
 forms:
+  abstract:
+    file-choose: "Wybierz plik"
   fields:
     name:
       label: "Nazwa zasobu"
@@ -14,3 +16,12 @@ forms:
       help: "Zawartość endpointu (JSON)."
     back: "Wróć"
     save: "Zapisz"
+  import:
+    file:
+      label: "Poprawny plik konfiguracji"
+      help: |
+        Załączany plik musi mieć format TXT lub JSON i zawierać poprawną konfigurację. Dokładną strukturę z wymaganymi
+        polami można znaleźć w dokumentacji aplikacji. Szczegółowe wyświetlanie błędów będzie dostępne dopiero w
+        przyszłych wersjach.
+    back: "Wróć"
+    save: "Rozpocznij import"

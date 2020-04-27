@@ -1,0 +1,19 @@
+{% trans_default_domain 'forms' %}
+<div class="form__row row">
+    <h2 class="row__title">{{ form_label(field) }}</h2>
+
+    {% if form_errors(field) %}
+        <span class="row__error">{{ form_errors(field) }}</span>
+    {% endif %}
+
+    <label for="{{ field.vars.id }}" class="row__file-label">
+        <span class="fas fa-upload fa-fw"></span>
+        {{ 'forms.abstract.file-choose'|trans }}
+    </label>
+    <div class="row__file-field">{{ form_widget(field) }}</div>
+
+    {% if form_help(field) %}
+        <span class="row__help">{{ form_help(field) }}</span>
+    {% endif %}
+
+</div>

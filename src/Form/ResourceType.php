@@ -20,8 +20,8 @@ class ResourceType extends AbstractType
                 'name',
                 TextType::class,
                 [
-                    'label' => 'forms.fields.name.label',
-                    'help' => 'forms.fields.name.help',
+                    'label' => 'forms.resource.name.label',
+                    'help' => 'forms.resource.name.help',
                 ]
             )
             ->add(
@@ -30,8 +30,8 @@ class ResourceType extends AbstractType
                 [
                     'required' => false,
                     'empty_data' => '',
-                    'label' => 'forms.fields.slug.label',
-                    'help' => 'forms.fields.slug.help',
+                    'label' => 'forms.resource.slug.label',
+                    'help' => 'forms.resource.slug.help',
                 ]
             )
             ->add(
@@ -39,8 +39,8 @@ class ResourceType extends AbstractType
                 TextareaType::class,
                 [
                     'required' => false,
-                    'label' => 'forms.fields.description.label',
-                    'help' => 'forms.fields.description.help',
+                    'label' => 'forms.resource.description.label',
+                    'help' => 'forms.resource.description.help',
 
                 ]
             )
@@ -49,8 +49,8 @@ class ResourceType extends AbstractType
                 TextareaType::class,
                 [
                     'required' => false,
-                    'label' => 'forms.fields.content.label',
-                    'help' => 'forms.fields.content.help',
+                    'label' => 'forms.resource.content.label',
+                    'help' => 'forms.resource.content.help',
                 ]
             );
     }

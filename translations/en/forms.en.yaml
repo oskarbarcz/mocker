@@ -1,5 +1,7 @@
 forms:
-  fields:
+  abstract:
+    file-choose: "Select file"
+  resource:
     name:
       label: "Resource name"
       help: ""
@@ -14,3 +16,11 @@ forms:
       help: "Value entered here must be valid JSON."
     back: "Back"
     save: "Save"
+  import:
+    file:
+      label: "Valid configuration file"
+      help: |
+        File must be TXT or JSON containing valid configuration. Exact structure with required fields can be found in
+        app documentation. Detailed errors will be displayed in further versions.
+    back: "Back"
+    save: "Start import"
