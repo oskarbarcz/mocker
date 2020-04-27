@@ -1,0 +1,20 @@
+{% extends 'admin/dialog/abstract/_dialog.html.twig' %}
+
+{% block dialog_content %}
+    {{ form_start(importForm) }}
+
+    {% include 'form/_widget.html.twig' with {'field': importForm.file} %}
+
+    <div class="dialog__buttons">
+        <button class="dialog__return" data-dialog-back>
+            <span class="fas {{ form_cancel.icon }} fa-fw"></span>
+            Leave
+        </button>
+        <button type="submit" class="dialog__proceed" data-dialog-proceed>
+            <span class="fas fa-save fa-fw"></span>
+            Import
+        </button>
+    </div>
+
+    {{ form_end(importForm) }}
+{% endblock %}

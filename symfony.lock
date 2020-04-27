@@ -136,7 +136,7 @@
         "version": "2.1.0"
     },
     "jms/serializer": {
-        "version": "3.4.0"
+        "version": "3.6.0"
     },
     "jms/serializer-bundle": {
         "version": "3.0",

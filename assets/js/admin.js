@@ -1,7 +1,7 @@
 import ClipboardJS from 'clipboard/dist/clipboard.min';
 import '../sass/domain/admin/index.sass';
 import DialogBox from './module/DialogBox';
-import { exist } from './module/exist';
+import {exist} from './module/exist';
 import Highlighter from './module/Highlighter';
 
 // JSON syntax highlighting
@@ -17,9 +17,9 @@ const dialogBox = document.querySelector('.dialog');
 if (exist(dialogBox)) {
   const box = new DialogBox({
     dialogBox: dialogBox,
-    activation: document.querySelector('.details__delete'),
-    close: document.querySelector('.dialog__return'),
-    proceed: document.querySelector('.dialog__proceed')
+    activation: document.querySelector('[data-dialog-invoke]'),
+    close: document.querySelector('[data-dialog-back]'),
+    proceed: document.querySelector('[data-dialog-proceed]')
   });
 
   box.init();

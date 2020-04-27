@@ -55,17 +55,17 @@
                 <p class="settings__content">
                     {{ 'settings.categories.data-import.description-import'|trans }}
                 </p>
-                <button class="settings__button">
+                <button class="settings__button" data-dialog-invoke>
                     <span class="fas fa-file-import fa-fw"></span>
                     {{ 'settings.categories.data-import.button-import'|trans }}
                 </button>
                 <p class="settings__content">
                     {{ 'settings.categories.data-import.description-export'|trans }}
                 </p>
-                <button class="settings__button">
+                <a href="{{ url('app_settings_export-create') }}" class="settings__button">
                     <span class="fas fa-file-export fa-fw"></span>
                     {{ 'settings.categories.data-import.button-export'|trans }}
-                </button>
+                </a>
             </section>
         </div>
         <div class="settings__divider"></div>
@@ -77,6 +77,16 @@
             {% include 'admin/component/_about-an-app.html.twig' %}
         </div>
     </div>
+{% endblock %}
+
+{% block dialogBox %}
+    {% trans_default_domain 'application' %}
+    {% include 'admin/dialog/_import_form_dialog.html.twig'  with {
+        'title': {text: 'Import danych / konfiguracji', icon: 'fa-file-import'},
+        'content': 'application.dialog-box.remove.content'|trans,
+        'form_cancel': {text: 'application.dialog-box.remove.cancel'|trans, icon: 'fa-chevron-left'},
+        'form_proceed': {text: 'application.dialog-box.remove.proceed'|trans, icon: 'fa-trash'}
+    } %}
 {% endblock %}
 
 {% block javascripts %}
