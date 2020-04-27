@@ -21,3 +21,6 @@ services:
     App\Service\File\Strategy\ApplicationContentStrategy:
         arguments:
             $filePath: '%kernel.project_dir%/var/app_files'
+    App\Service\UploadManager:
+        arguments:
+            $targetPath: '%kernel.project_dir%/var/app_uploads'

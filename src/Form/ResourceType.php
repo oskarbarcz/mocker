@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Form;
 
@@ -19,17 +21,17 @@ class ResourceType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'forms.fields.name.label',
-                    'help'  => 'forms.fields.name.help',
+                    'help' => 'forms.fields.name.help',
                 ]
             )
             ->add(
                 'slug',
                 TextareaType::class,
                 [
-                    'required'   => false,
+                    'required' => false,
                     'empty_data' => '',
-                    'label'      => 'forms.fields.slug.label',
-                    'help'       => 'forms.fields.slug.help',
+                    'label' => 'forms.fields.slug.label',
+                    'help' => 'forms.fields.slug.help',
                 ]
             )
             ->add(
@@ -37,8 +39,8 @@ class ResourceType extends AbstractType
                 TextareaType::class,
                 [
                     'required' => false,
-                    'label'    => 'forms.fields.description.label',
-                    'help'     => 'forms.fields.description.help',
+                    'label' => 'forms.fields.description.label',
+                    'help' => 'forms.fields.description.help',
 
                 ]
             )
@@ -47,8 +49,8 @@ class ResourceType extends AbstractType
                 TextareaType::class,
                 [
                     'required' => false,
-                    'label'    => 'forms.fields.content.label',
-                    'help'     => 'forms.fields.content.help',
+                    'label' => 'forms.fields.content.label',
+                    'help' => 'forms.fields.content.help',
                 ]
             );
     }
@@ -58,7 +60,7 @@ class ResourceType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class'         => Resource::class,
+                'data_class' => Resource::class,
                 'translation_domain' => 'forms',
             ]
         );

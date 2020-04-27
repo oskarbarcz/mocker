@@ -3,11 +3,21 @@
     <div class="dialog__foreground">
         <main class="dialog__window">
             <h2 class="dialog__title">
-                <span class="fas fa-exclamation fa-fw dialog__icon"></span>
-                Import pliku
+                {% if title.icon is defined and cancel.icon is not null %}
+                    <span class="fas {{ title.icon }} fa-fw dialog__icon"></span>
+                {% endif %}
+                {{ title.text }}
             </h2>
 
-            <p>Tu będzie form</p>
+            {{ form_start(importForm) }}
+
+            {% include 'form/_widget.html.twig' with {'field': importForm.file} only %}
+            <button type="submit">
+                <span class="fas fa-save"></span>
+                {% trans %}forms.fields.save{% endtrans %}
+            </button>
+            {{ form_end(importForm) }}
+
             <div class="dialog__buttons">
                 <button class="dialog__return" data-dialog-back>
                     {% if cancel.icon is defined and cancel.icon is not null %}
