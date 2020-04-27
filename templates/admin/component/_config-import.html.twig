@@ -4,11 +4,10 @@
         <main class="dialog__window">
             <h2 class="dialog__title">
                 <span class="fas fa-exclamation fa-fw dialog__icon"></span>
-                {{ title }}
+                Import pliku
             </h2>
-            <p class="dialog__content">
-                {{ content }}
-            </p>
+
+            <p>Tu będzie form</p>
             <div class="dialog__buttons">
                 <button class="dialog__return" data-dialog-back>
                     {% if cancel.icon is defined and cancel.icon is not null %}
@@ -16,7 +15,7 @@
                     {% endif %}
                     {{ cancel.text }}
                 </button>
-                <a class="dialog__proceed" data-dialog-proceed href="{{ link }}">
+                <a class="dialog__proceed" href="">
                     {% if proceed.icon is defined and proceed.icon is not null %}
                         <span class="fas {{ proceed.icon }} fa-fw"></span>
                     {% endif %}

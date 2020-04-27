@@ -55,7 +55,7 @@
                 <p class="settings__content">
                     {{ 'settings.categories.data-import.description-import'|trans }}
                 </p>
-                <button class="settings__button">
+                <button class="settings__button" data-dialog-invoke>
                     <span class="fas fa-file-import fa-fw"></span>
                     {{ 'settings.categories.data-import.button-import'|trans }}
                 </button>
@@ -77,6 +77,16 @@
             {% include 'admin/component/_about-an-app.html.twig' %}
         </div>
     </div>
+{% endblock %}
+
+{% block dialogBox %}
+    {% trans_default_domain 'application' %}
+    {% include 'admin/component/_config-import.html.twig'  with {
+        'title': 'application.dialog-box.remove.title'|trans,
+        'content': 'application.dialog-box.remove.content'|trans,
+        'cancel': {text: 'application.dialog-box.remove.cancel'|trans, icon: 'fa-chevron-left'},
+        'proceed': {text: 'application.dialog-box.remove.proceed'|trans, icon: 'fa-trash'}
+    } only %}
 {% endblock %}
 
 {% block javascripts %}
