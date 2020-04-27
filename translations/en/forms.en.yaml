@@ -1,4 +1,6 @@
 forms:
+  abstract:
+    file-choose: "Select file"
   resource:
     name:
       label: "Resource name"
