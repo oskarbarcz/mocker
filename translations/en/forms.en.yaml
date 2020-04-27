@@ -1,16 +1,22 @@
 forms:
-  fields:
-    name:
-      label: "Resource name"
-      help: ""
-    slug:
-      label: "URI identifier (slug)"
-      help: "Identifier can cantain only letters, numbers and signs '_', '-'. Identifier entered here must be unique."
-    description:
-      label: "Resource description"
-      help: "Resource description will easify further resource searching."
-    content:
-      label: "Endpoint content"
-      help: "Value entered here must be valid JSON."
-    back: "Back"
-    save: "Save"
+  resource:
+      name:
+          label: "Resource name"
+          help: ""
+      slug:
+          label: "URI identifier (slug)"
+          help: "Identifier can cantain only letters, numbers and signs '_', '-'. Identifier entered here must be unique."
+      description:
+          label: "Resource description"
+          help: "Resource description will easify further resource searching."
+      content:
+          label: "Endpoint content"
+          help: "Value entered here must be valid JSON."
+      back: "Back"
+      save: "Save"
+  import:
+      file:
+          label: "Valid configuration file"
+          help: |
+              "File must be TXT or JSON containing valid configuration. Detailed errors will be displayed in further versions.
+              "
