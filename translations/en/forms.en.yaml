@@ -18,7 +18,7 @@ forms:
     file:
       label: "Valid configuration file"
       help: |
-        "File must be TXT or JSON containing valid configuration. Detailed errors will be displayed in further versions.
-        "
+        File must be TXT or JSON containing valid configuration. Exact structure with required fields can be found in
+        app documentation. Detailed errors will be displayed in further versions.
     back: "Back"
     save: "Start import"

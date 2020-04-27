@@ -1,0 +1,19 @@
+<div class="form__row row">
+    <h2 class="row__title">{{ form_label(field) }}</h2>
+
+    {% if form_errors(field) %}
+        <span class="row__error">{{ form_errors(field) }}</span>
+    {% endif %}
+
+    <label for="{{ field.vars.id }}"
+           class="row__file-label">
+        Upload a file
+    </label>
+
+    <div class="row__file-field">{{ form_widget(field) }}</div>
+
+    {% if form_help(field) %}
+        <span class="row__help">{{ form_help(field) }}</span>
+    {% endif %}
+
+</div>

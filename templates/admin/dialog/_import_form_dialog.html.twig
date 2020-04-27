@@ -5,7 +5,7 @@
     {% trans_default_domain 'forms' %}
 
     {{ form_start(importForm) }}
-    {% include 'form/_widget.html.twig' with {'field': importForm.file} %}
+    {% include 'form/_file_widget.html.twig' with {'field': importForm.file} %}
 
     <div class="dialog__buttons">
         <button class="dialog__return" data-dialog-back>
