@@ -1,0 +1,50 @@
+<div class="dialog dialog--hidden" aria-hidden="true">
+    <div class="dialog__background"></div>
+    <div class="dialog__foreground">
+        <main class="dialog__window">
+            <h2 class="dialog__title">
+                {% block dialog_title %}
+                    {% if title.icon is defined and title.icon is not null %}
+                        <span class="fas {{ title.icon }} fa-fw dialog__icon"></span>
+                    {% endif %}
+                    {{ title.text }}
+                {% endblock %}
+            </h2>
+            {% block dialog_content %}{% endblock %}
+
+            {% block dialog_buttons %}
+                {% if cancel is defined or proceed is defined %}
+                    <div class="dialog__buttons">
+                        {% if cancel is defined and cancel is not null %}
+                            <button class="dialog__return" data-dialog-back>
+                                {% if cancel.icon is defined and cancel.icon is not null %}
+                                    <span class="fas {{ cancel.icon }} fa-fw"></span>
+                                {% endif %}
+                                {{ cancel.text }}
+                            </button>
+                        {% endif %}
+                        {% if proceed is defined and cancel is defined %}
+                            {% if proceed.link is defined and proceed.link is not null %}
+                                <a class="dialog__proceed" href="{{ proceed.link }}" data-dialog-proceed>
+                                    {% if proceed.icon is defined and proceed.icon is not null %}
+                                        <span class="fas {{ proceed.icon }} fa-fw"></span>
+                                    {% endif %}
+                                    {{ proceed.text }}
+                                </a>
+                            {% else %}
+                                <button class="dialog__proceed" data-dialog-proceed>
+                                    {% if proceed.icon is defined and proceed.icon is not null %}
+                                        <span class="fas {{ proceed.icon }} fa-fw"></span>
+                                    {% endif %}
+                                    {{ proceed.text }}
+                                </button>
+                            {% endif %}
+
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+        </main>
+    </div>
+</div>

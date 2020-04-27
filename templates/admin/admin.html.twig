@@ -38,9 +38,8 @@
 {% block dialogBox %}
     {% trans_default_domain 'application' %}
     {% if current is defined and current is not null %}
-        {% include 'admin/component/_dialog-box.html.twig' with {
-            'title': 'application.dialog-box.remove.title'|trans,
-            'content': 'application.dialog-box.remove.content'|trans,
+        {% include 'admin/dialog/_dialog-box.html.twig' with {
+            'title': {text:'application.dialog-box.remove.title'|trans},
             'cancel': {text: 'application.dialog-box.remove.cancel'|trans, icon: 'fa-chevron-left'},
             'proceed': {text: 'application.dialog-box.remove.proceed'|trans, icon: 'fa-trash'},
             'link':  url('app_resource-delete', {'slug': current.slug})

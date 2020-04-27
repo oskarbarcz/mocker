@@ -54,10 +54,8 @@ class ImportManager
     {
         $resources = $object->getResources();
 
-        $resourcesa = [];
-
         foreach ($resources as $resource) {
-            $resourcesa[] = $this->resourceManager->persist($resource);
+            $this->resourceManager->persist($resource);
         }
 
         $this->configurationManager->set($object->getConfig());

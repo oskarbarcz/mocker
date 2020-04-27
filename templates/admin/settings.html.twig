@@ -81,11 +81,11 @@
 
 {% block dialogBox %}
     {% trans_default_domain 'application' %}
-    {% include 'admin/component/_config-import.html.twig'  with {
+    {% include 'admin/dialog/_config-import.html.twig'  with {
         'title': {text: 'Import danych / konfiguracji', icon: 'fa-file-import'},
         'content': 'application.dialog-box.remove.content'|trans,
-        'cancel': {text: 'application.dialog-box.remove.cancel'|trans, icon: 'fa-chevron-left'},
-        'proceed': {text: 'application.dialog-box.remove.proceed'|trans, icon: 'fa-trash'}
+        'form_cancel': {text: 'application.dialog-box.remove.cancel'|trans, icon: 'fa-chevron-left'},
+        'form_proceed': {text: 'application.dialog-box.remove.proceed'|trans, icon: 'fa-trash'}
     } %}
 {% endblock %}
 
