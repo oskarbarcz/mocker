@@ -31,7 +31,6 @@ class ImportManager
     {
         $content = file_get_contents($file->getPathname());
         $object = $this->createImportObject($content);
-        dd($object);
 
         $this->clearAllPrevious();
         $this->importNew($object);
@@ -55,8 +54,12 @@ class ImportManager
     {
         $resources = $object->getResources();
 
+        $resourcesa = [];
+
         foreach ($resources as $resource) {
-            $this->resourceManager->persist($resource);
+            $resourcesa[] = $this->resourceManager->persist($resource);
         }
+
+        $this->configurationManager->set($object->getConfig());
     }
 }
