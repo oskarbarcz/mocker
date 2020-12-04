@@ -10,7 +10,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
     "clipboard": "^2.0.6",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.4.1",
     "reset-css": "^5.0.1"
   },
   "license": "UNLICENSED",
